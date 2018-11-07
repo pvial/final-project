@@ -1,0 +1,402 @@
+<div class="container">
+    
+    <div style="height: 50px;">
+    </div>
+            
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card border-secondary mb-3" style="min-height: 500px;">
+          
+          <h6 class="card-header text-white bg-secondary mb-3">  
+            Nuevo ejercicio 
+          </h6>
+          
+          <div class="card-body" align="left">
+            
+            <form action="/create_pre_ex" method="post">
+              
+              <!-- Label and input for contenido_id -->
+              <div class="row">  
+              
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="contenido">
+                      Contenido
+                    </label>
+                        <%= select_tag("contenido_id", options_from_collection_for_select(Contentido.all, :id, :nombre,  @draft.try(:contenido_id)), :class => "form-control", :value => @draft.try(:contenido_id) ) %>
+                  </div>
+                </div>
+              
+                <!-- Label and input for habilidad -->
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label for="habilidad">
+                      Habilidad
+                    </label>
+                    <%= select_tag("habilidad", options_for_select([ "Identificar", "Interpretar", "Analizar"], @draft.try(:habilidad)), :class => "form-control", :value => @draft.try(:habilidad) ) %>
+                  </div>
+                </div>
+                
+                <!-- Label and input for dificultad -->
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label for="dificultad">
+                      Dificultad
+                    </label>
+                    <%= select_tag("dificultad", options_for_select([1, 2, 3, 4, 5], @draft.try(:dificultad)), :class => "form-control", :value => @draft.try(:dificultad) ) %>   
+                  </div>
+                </div>
+              
+                <!-- Label and input for imagen -->
+                <div class="col-md-5">
+                  <div class="form-group">
+                    <label for="imagen">
+                      Imagen
+                    </label>
+                    <div class="input-group mb-3">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="inputGroupFile02">
+                        <label class="custom-file-label" for="inputGroupFile02">Choose file (placeholder) </label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text" id="">Upload</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+              <hr>
+              <!--- input contenido y opciones --->
+              <div class="row"> 
+                <!-- Label and input for enunciado -->
+                <div class="col-md-8">
+                  
+                  <div class="col-md-1"> </div>
+                  
+                  <div class="form-group">
+                    <label for="enunciado">
+                      Enunciado
+                    </label>
+                
+                    <textarea id="enunciado" name="enunciado" class="form-control" rows="5"><%= @draft.try(:enunciado) %></textarea>
+                  </div>
+                  <div style="height: 10px;"></div>
+                  
+                  <!-- Label and input for hint -->
+                  <div class="form-group">
+                    <label for="hint">
+                      Hint
+                    </label>
+                
+                    <textarea id="hint" name="hint" class="form-control" rows="2"><%= @draft.try(:hint) %></textarea>
+                  </div>
+                  
+                </div>
+                
+                <!-- Label and input for opciones -->
+                <div class="col-md-4"> 
+                  <div class="form-group">
+                    <label for="op1">
+                      Opciones (Sólo si aplica...)
+                    </label>
+                    <textarea id="op1" name="op1" class="form-control" rows="1"><%= @draft.try(:op1) %></textarea>
+                  </div>
+                
+                  <div class="form-group">
+                    <textarea id="op2" name="op2" class="form-control" rows="1"><%= @draft.try(:op2) %></textarea>
+                  </div>
+                
+                  <div class="form-group">
+                    <textarea id="op3" name="op3" class="form-control" rows="1"><%= @draft.try(:op3) %></textarea>
+                  </div>
+                
+                  <div class="form-group">
+                    <textarea id="op4" name="op4" class="form-control" rows="1"><%= @draft.try(:op4) %></textarea>
+                  </div>
+                
+                  <div class="form-group">
+                    <textarea id="op5" name="op5" class="form-control" rows="1"><%= @draft.try(:op5) %></textarea>
+                  </div>
+                </div>
+                
+              </div>
+              
+              <hr>
+              
+              <div class="row">
+                <!--- input respuestas --->
+                <div class="col-md-4">
+                  <!-- Label and input for resp_correcta -->
+                  <div class="form-group">
+                    <label for="resp_correcta">
+                      Resp correcta
+                    </label>
+                    <textarea id="resp_correcta" name="resp_correcta" class="form-control" rows="1"><%= @draft.try(:resp_correcta) %></textarea>
+                  </div>
+                
+                  <!-- Label and input for distractores -->
+                  <div class="form-group">
+                    <label for="w1">
+                      Distractores
+                    </label>
+                
+                    <textarea id="w1" name="w1" class="form-control" rows="1"><%= @draft.try(:w1) %></textarea>
+                  </div>
+    
+                  <div class="form-group">
+                    <textarea id="w2" name="w2" class="form-control" rows="1"><%= @draft.try(:w2) %></textarea>
+                  </div>
+    
+                  <div class="form-group">
+                    <textarea id="w3" name="w3" class="form-control" rows="1"><%= @draft.try(:w3) %></textarea>
+                  </div>
+    
+                  <div class="form-group">
+                    <textarea id="w4" name="w4" class="form-control" rows="1"><%= @draft.try(:w4) %></textarea>
+                  </div>
+                  
+                </div>
+                
+                <!--- input Solucion por pasos --->
+                <div class="col-md-8">
+                  
+                  <div class="form-group">
+                    <label for="solucion">
+                      Paso-a-Paso
+                    </label>
+                    <textarea id="solucion" name="solucion" class="form-control" rows="12"><%= @draft.try(:solucion) %></textarea>
+                  </div>
+                </div>
+              </div>
+              
+              <hr>
+              
+              <input type="hidden" id="molde_id" name="molde_id" class="form-control" value="<%= @molde.id %>">
+              <input type="hidden" id="creador_id" name="creador_id" class="form-control" value="<%= current_creador.id %>">
+              
+              
+              <button class="btn btn-block btn-success">
+                Previsualizar
+              </button>
+            </form>
+            
+            <hr>
+              <div class="row">
+                <!-- Previsualización -->
+                <div class="col-md-7"> 
+                  <div class="card border-secondary mb-3" style="min-height: 500px;">
+                    <h6 class="card-header text-white bg-secondary mb-3">  Previsualización </h6>
+                    
+                    <div class="card-body" align="left">
+                        
+                        <% if @draft != nil %>
+                          
+                          <!--- presentacion de enunciado (y opciones) --->
+                          <div class="row" style="min-height: 50px;">  
+                            
+                            <div>           
+                              <h6> Enunciado </h6> 
+                              <p> <%= @draft.enunciado %> </p>
+                              
+                              <div style="height: 10px;"> </div>
+                              
+                                <% if @draft.op1 != "" %>
+                                  <h6> Opciones:   </h6>
+                                  <ul>
+      
+                                  <% if @draft.op1 != "" %>
+                                    <li> <%= @draft.op1 %>  </li>
+                                  <% end %>
+                                  
+                                  <% if @draft.op2 != "" %>
+                                    <li> <%= @draft.op2 %>  </li>
+                                  <% end %>
+                                  
+                                  <% if @draft.op3 != "" %>
+                                    <li> <%= @draft.op3 %>  </li>
+                                  <% end %>
+                                  
+                                  <% if @draft.op4 != "" %>
+                                    <li> <%= @draft.op4 %>  </li>
+                                  <% end %>
+                                  
+                                  <% if @draft.op5 != "" %>
+                                    <li> <%= @draft.op5 %>  </li>
+                                  <% end %>
+                                  
+                                  </ul>
+                                <% end %>
+                            </div> 
+                          </div>
+
+                          <!--- Respuestas, imagen --->
+                          <div class="row">
+                              
+                            <!--- Respuestas --->
+                            <div class="col-md-4">
+                              
+                                <h6> Respuesta correcta </h6>
+                                
+                                <ul>
+                                    <li> <%= @draft.resp_correcta %> </li>
+                                </ul>
+                                
+                                <h6> Distractores </h6>
+                                <ul>
+                                    <li> <%= @draft.w1 %> </li>
+                                    <li> <%= @draft.w2 %> </li>
+                                    <li> <%= @draft.w3 %> </li>
+                                    <li> <%= @draft.w4 %> </li>
+                                </ul>
+                              </div>
+                            <!--- imagen --->
+                            <div class="col-md-3" style="heigth: 100%;">
+                                <div class="row" style="heigth: 50%;">
+                                  <div>
+                                    Placeholder para imagen
+                                  </div>
+                                </div>
+                                
+                            </div>
+                            
+                          </div>
+                         
+                        <% else %>
+                          <h6> Presiona Previsualizar para ver el ejercicio </h6>
+                        <% end %> 
+                          
+                    </div>
+                    
+                  </div> 
+                </div>
+                <!--- Prev hint y soluci[on --->
+                <div class="col-md-5"> 
+                  <div class="card border-secondary mb-3" style="min-height: 500px;">
+                    <h6 class="card-header text-white bg-secondary mb-3">  Hint y Solución </h6>
+                      
+                      
+                        <!--- Hint and Solucion --->
+                        <div class="card-body" align="left">
+                          
+                          <% if @draft != nil %>
+                          <!--- Hint --->
+                          <div class="row" style="min-height: 50px;">  
+                            <div class="card border-secondary" style="width: 100%;">
+                                  <h6>  Hint: </h6><p><%= @draft.hint %></p>
+                            </div>              
+                          </div>
+                          
+                          <div style="height: 10px;"></div>
+                          
+                          <!--- Solución --->
+                          <div class="row" style="min-height: 50x;">
+                            <div class="card border-secondary" style="width: 100%;">
+                              <h6>  Solucion:  </h6> <br> <pre><%= @draft.solucion %></pre>
+                            </div>
+                            
+                          </div>
+                          
+                          <% else %>
+                          
+                          <!--- Si no hay draft --->
+                          <div class="row" style="min-height: 50x;">
+                            <div>
+                              <h6>  Presione previsualizar  </h6> 
+                            </div>
+                          </div>
+                        
+                          <% end %>
+                        </div>
+                        
+                        
+                      </div>
+
+                  </div>
+              </div>
+            <hr>
+            
+            <% if @draft != nil %>
+              <!--- botones condicionales--->
+              <div class="row">
+                
+                <div class="col-md-6">
+                  <!--- Boton para guardar y empezar un gemelo --->
+                  <form action="/create_ejercicio_gemelo" method="post">
+                    
+                    <input type="hidden" id="contenido_id" name="contenido_id" class="form-control" value="<%= @draft.contenido_id %>">
+                    <input type="hidden" id="enunciado" name="enunciado" class="form-control" value="<%= @draft.enunciado %>">
+                    <input type="hidden" id="last_pre_ex_id" name="last_pre_ex_id" class="form-control" value="<%= @draft.id %>">
+                    
+                    <input type="hidden" id="habilidad" name="habilidad" class="form-control" value="<%= @draft.habilidad %>">
+                    <input type="hidden" id="dificultad" name="dificultad" class="form-control" value="<%= @draft.dificultad %>">
+                    <input type="hidden" id="hint" name="hint" class="form-control" value="<%= @draft.hint %>">
+                    
+                    <input type="hidden" id="resp_correcta" name="resp_correcta" class="form-control" value="<%= @draft.resp_correcta %>">
+                    <input type="hidden" id="w1" name="w1" class="form-control" value="<%= @draft.w1 %>">
+                    <input type="hidden" id="w2" name="w2" class="form-control" value="<%= @draft.w2 %>">
+                    <input type="hidden" id="w3" name="w3" class="form-control" value="<%= @draft.w3 %>">
+                    <input type="hidden" id="w4" name="w4" class="form-control" value="<%= @draft.w4 %>">
+                    <input type="hidden" id="molde_id" name="molde_id" class="form-control" value="<%= @molde.id %>">
+                    <input type="hidden" id="creador_id" name="creador_id" class="form-control" value="<%= current_creador.id %>">
+                    
+                    <input type="hidden" id="op1" name="op1" class="form-control" value="<%= @draft.op1 %>">
+                    <input type="hidden" id="op2" name="op2" class="form-control" value="<%= @draft.op2 %>">
+                    <input type="hidden" id="op3" name="op3" class="form-control" value="<%= @draft.op3 %>">
+                    <input type="hidden" id="op4" name="op4" class="form-control" value="<%= @draft.op4 %>">
+                    <input type="hidden" id="op5" name="op5" class="form-control" value="<%= @draft.op5 %>">
+                    
+                    <input type="hidden" id="solucion" name="solucion" class="form-control" value="<%= @draft.solucion %>">
+  
+                    
+                    <button class="btn btn-warning btn-block">
+                      Crear Ejercicio Y EMPEZAR UN GEMELO
+                    </button>
+                    
+                  </form>
+                </div>
+                
+                <div class="col-md-6">
+                  <!--- Boton para guardar y terminar --->
+                  <form action="/create_ejercicio" method="post">
+                    
+                    <input type="hidden" id="contenido_id" name="contenido_id" class="form-control" value="<%= @draft.contenido_id %>">
+                    <input type="hidden" id="enunciado" name="enunciado" class="form-control" value="<%= @draft.enunciado %>">
+                    <input type="hidden" id="last_pre_ex_id" name="last_pre_ex_id" class="form-control" value="<%= @draft.id %>">
+                    
+                    <input type="hidden" id="habilidad" name="habilidad" class="form-control" value="<%= @draft.habilidad %>">
+                    <input type="hidden" id="dificultad" name="dificultad" class="form-control" value="<%= @draft.dificultad %>">
+                    <input type="hidden" id="hint" name="hint" class="form-control" value="<%= @draft.hint %>">
+                    
+                    <input type="hidden" id="resp_correcta" name="resp_correcta" class="form-control" value="<%= @draft.resp_correcta %>">
+                    <input type="hidden" id="w1" name="w1" class="form-control" value="<%= @draft.w1 %>">
+                    <input type="hidden" id="w2" name="w2" class="form-control" value="<%= @draft.w2 %>">
+                    <input type="hidden" id="w3" name="w3" class="form-control" value="<%= @draft.w3 %>">
+                    <input type="hidden" id="w4" name="w4" class="form-control" value="<%= @draft.w4 %>">
+                    <input type="hidden" id="molde_id" name="molde_id" class="form-control" value="<%= @molde.id %>">
+                    <input type="hidden" id="creador_id" name="creador_id" class="form-control" value="<%= current_creador.id %>">
+                    
+                    <input type="hidden" id="op1" name="op1" class="form-control" value="<%= @draft.op1 %>">
+                    <input type="hidden" id="op2" name="op2" class="form-control" value="<%= @draft.op2 %>">
+                    <input type="hidden" id="op3" name="op3" class="form-control" value="<%= @draft.op3 %>">
+                    <input type="hidden" id="op4" name="op4" class="form-control" value="<%= @draft.op4 %>">
+                    <input type="hidden" id="op5" name="op5" class="form-control" value="<%= @draft.op5 %>">
+                    
+                    <input type="hidden" id="solucion" name="solucion" class="form-control" value="<%= @draft.solucion %>">
+  
+                    
+                    <button class="btn btn-primary btn-block">
+                      Crear Ejercicio (y terminar)
+                    </button>
+                    
+                  </form>
+                </div>
+                
+              </div>
+            
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

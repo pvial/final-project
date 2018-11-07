@@ -1,0 +1,72 @@
+<div class="container">
+    <div style="height: 50px;"></div>
+            
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card border-secondary mb-3" style="min-height: 500px;">
+          <h6 class="card-header text-white bg-secondary mb-3">  Ejercicios por Dificultad </h6>
+          
+          <div class="card-body" align="left">
+            
+            <div class = "row">
+              <div> 
+                <a href="/contentidos/porcontenido" class="btn btn-primary btn-block" align="bottom">  Ver por Contenido </a>
+              </div>
+              
+              
+              <div> 
+                <a href="/contentidos/pordificultad" class="btn btn-primary btn-block" align="bottom">  Ver por Dificultad </a>
+              </div>
+              
+              
+              <div> 
+                <a href="/contentidos/pormolde" class="btn btn-primary btn-block" align="bottom">  Ver por Molde </a>
+              </div>
+              
+            </div>
+            
+            <hr>
+
+            <table class="table">
+              <tr>
+                <th>
+                  Dificultad
+                </th>
+            
+                <th>
+                  # ejercicios (Identificar / Interpretar / Analizar )
+                </th>
+            
+              </tr>
+            
+              <% dific = ["Muy Fácil", "Fácil", "Medio", "Difícil", "Muy Difícil"] %>
+              
+              <% [1,2,3,4,5].each do |dif| %>
+              
+              <tr>
+                
+                <td>
+                  <a href="/"> <%= dific[dif-1] %> </a>
+                </td>
+                
+                <td>
+                    <% iden = @ejercicios.where(:dificultad => dif).where(:habilidad => "Identificar").count %>
+                    <% inter = @ejercicios.where(:dificultad => dif).where(:habilidad => "Interpretar").count %>
+                    <% analizar = @ejercicios.where(:dificultad => dif).where(:habilidad => "Analizar").count %>
+                    
+                    
+                  <%= @ejercicios.where(:dificultad => dif).count %> (<%= iden %> / <%= inter %> / <%= analizar %> ) 
+                </td>
+            
+              </tr>
+              
+              <% end %>
+              
+            </table>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

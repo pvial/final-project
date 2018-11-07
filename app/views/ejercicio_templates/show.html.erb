@@ -1,0 +1,197 @@
+<% if @ej != nil %>
+    
+        <div class="container">
+            <div style="height: 50px;">
+            </div>
+            
+            <div class="row">
+              
+              
+              <div class="col-md-8">
+                <!--- presentacion de enunciado (y opciones) --->
+                <div class="row">
+                  <div class="card border-secondary mb-3" style="min-height: 500px; width:100%;">
+                  <h6 class="card-header text-white bg-secondary mb-3">  Ver ejercicio </h6>
+                  <div class="card-body" align="left">
+        
+                    
+                    <h6> Enunciado </h6>
+                    <p> <%= @ej.enunciado %> </p>
+                    
+                    <div style="height: 20px;"> </div>
+                    
+                    <% if @ej.op1 != "" %>
+                      <h6> Opciones:  </h6>
+                    <% end %>
+                    
+                    <% if @ej.op1 != "" %>
+                      <p> <%= @ej.op1 %>  </p>
+                    <% end %>
+                    
+                    <% if @ej.op2 != "" %>
+                      <p> <%= @ej.op2 %>  </p>
+                    <% end %>
+                    
+                    <% if @ej.op3 != "" %>
+                      <p> <%= @ej.op3 %>  </p>
+                    <% end %>
+                    
+                    <% if @ej.op4 != "" %>
+                      <p> <%= @ej.op4 %>  </p>
+                    <% end %>
+                    
+                    <% if @ej.op5 != "" %>
+                      <p> <%= @ej.op5 %>  </p>
+                    <% end %>
+                    
+                    
+                    
+                    <!--- Respuestas --->
+                    <div style="height: 25px;">
+                    </div>
+                    <h6> Respuesta correcta</h6>
+                    <ul>
+                        <li> <%= @ej.resp_correcta %> </li>
+                    </ul>
+                    
+                    <h6> Distractores </h6>
+                    <ul>
+                        <li> <%= @ej.w1 %> </li>
+                        <li> <%= @ej.w2 %> </li>
+                        <li> <%= @ej.w3 %> </li>
+                        <li> <%= @ej.w4 %> </li>
+                    </ul>
+
+                  </div>
+                </div>
+                </div>
+                
+                <div style="height: 5px;"></div>
+                
+                <!--- update status --->
+                <div class="row">
+                  <div class="card border-warning mb-3" style="width:100%;">
+                    <h6 class="card-header text-white bg-warning mb-3">  Actualizar status </h6>
+  
+                    <div class="card-body" align="left">
+                      
+                      <!--- Form to update --->
+                      <form action="/update_ejercicio/<%= @ej.id %>" method="post">
+                        <!-- Label and input for aprobado -->
+                        <% if current_aprobador != nil %>
+                          <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="form-check">
+                              <input type="hidden" value="0" name="aprobado">
+                              <input id="aprobado" class="form-check-input" name="aprobado" type="checkbox" value="1" <%= "checked" if @ej.aprobado %>>
+                          
+                              <label for="aprobado" class="form-check-label">
+                                Aprobado
+                              </label>
+                            </div>
+                            <div class="col-md-2"></div>
+                            <!-- Label and input for bandera -->
+                            <div class="form-check">
+                              <input type="hidden" value="0" name="bandera">
+                              <input id="bandera" class="form-check-input" name="bandera" type="checkbox" value="1" <%= "checked" if @ej.bandera %>>
+                          
+                              <label for="bandera" class="form-check-label">
+                                Poner/sacar en lista de rechazados
+                              </label>
+                            </div>
+                            
+                          </div>
+                        <% else %>
+                          <input type="hidden" id="bandera" name="bandera" class="form-control" value="<%= @ej.bandera %>">
+                          <input type="hidden" id="aprobado" name="aprobado" class="form-control" value="<%= @ej.aprobado %>">
+                        <% end %>
+                        <div style="height: 10px;">
+                        </div>
+                        
+                        <!-- Label and input for comentario -->
+                        <div class="form-group">
+                          <label for="comentario">
+                            Comentario
+                          </label>
+                      
+                          <textarea id="comentario" name="comentario" class="form-control" rows="3"><%= @ej.comentario %></textarea>
+                        </div>
+                      
+                        <button class="btn btn-block btn-outline-secondary">
+                          Update ejercicio
+                        </button>
+                        
+                      </form>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!--- Info adicional --->
+              <div class="col-md-4">
+                <div class="card border-secondary mb-3" style="min-height: 500px;">
+                  
+                  <!--- presentacion de detalles del ejercicio --->
+                  <div class="card-body" align="left">
+                    
+                    <h6> Creador </h6>
+                    <p> <%= Creador.find(@ej.creador_id).email %> </p>
+                    
+                    <div style="height: 10px;"> </div>
+                    
+                    <% if @ej.aprobado == true %>
+                      <h6> Aprobador </h6>
+                      <p> <%= Aprobador.find(@ej.aprobador_id).email %> </p>
+                    <% end %>
+                    
+                    <div style="height: 10px;"> </div>
+                    
+                    <h6> Molde (gemelos aprobados) </h6>
+                    <p> <%= @ej.molde_id %> (<%= Ejercicio.where(:aprobado => true).where(:molde_id => @ej.molde_id).count %>) </p>
+                    
+                    <h6> Contenido </h6>
+                    <p> <%= Contentido.find(@ej.contenido_id).nombre %> </p>
+                    
+                    <h6> Dificultad </h6>
+                    <p> <%= @ej.dificultad %> </p>
+                    
+                    <h6> Habilidad </h6>
+                    <p> <%= @ej.habilidad %> </p>
+                    
+                    <h6> Comentario </h6>
+                    <p> <%= @ej.comentario %> </p>
+                    
+                    <div style="height: 30px;"> </div>
+                    
+                    <% if @ej.aprobado != true and current_creador != nil %>
+                      <a href="/ejercicios/<%= @ej.id %>/edit" class="btn btn-primary btn-block" align="bottom">
+                        Editar ejercicio
+                      </a>
+                    <% end %>
+                    <div style="height: 10px;"> </div>
+                    <% if current_creador != nil %>
+                      <form action="/pre_exes/iniciar_gemelo" method="get">
+                    
+                        <input type="hidden" id="last_pre_ex_id" name="last_pre_ex_id" class="form-control" value="<%= @ej.last_pre_ex_id %>">
+                        <input type="hidden" id="molde_id" name="molde_id" class="form-control" value="<%= @ej.molde_id %>">
+                        
+                        <button class="btn btn-warning btn-block">
+                          Crear un Gemelo
+                        </button>
+                        
+                      </form>
+                    <% end %>
+                    
+                  </div>
+                </div>
+              </div>
+            
+             
+              
+
+           </div>
+          
+        </div>
+    
+    <% end %>

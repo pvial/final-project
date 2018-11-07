@@ -1,0 +1,81 @@
+<% if current_aprobador != nil %>
+
+<div class="container">
+    <div style="height: 50px;">
+    </div>
+    
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card border-secondary mb-3" style="min-height: 500px;">
+          <h6 class="card-header text-white bg-secondary mb-3">  Previsualización </h6>
+          
+          <div class="card-body" align="left">
+
+            <!--- presentacion de enunciado (y opciones) --->
+            <h6><%= @ej.enunciado %> </h6>
+            
+            <div style="height: 20px;"> </div>
+            
+            <% if @ej.op1 != "" %>
+              <p> <%= @ej.op1 %>  </p>
+            <% end %>
+            
+            <% if @ej.op2 != "" %>
+              <p> <%= @ej.op2 %>  </p>
+            <% end %>
+            
+            <% if @ej.op3 != "" %>
+              <p> <%= @ej.op3 %>  </p>
+            <% end %>
+            
+            <% if @ej.op4 != "" %>
+              <p> <%= @ej.op4 %>  </p>
+            <% end %>
+            
+            <% if @ej.op5 != "" %>
+              <p> <%= @ej.op5 %>  </p>
+            <% end %>
+            
+            <div style="height: 25px;">
+            </div>
+            
+            <!--- Respuestas --->
+            <h5> Respuestas </h5>
+            <h6> Respuesta correcta</h6>
+            <ul>
+                <li> <%= @ej.resp_correcta %> </li>
+            </ul>
+            
+            <h6> Distractores </h6>
+            <ul>
+                <li> <%= @ej.w1 %> </li>
+                <li> <%= @ej.w2 %> </li>
+                <li> <%= @ej.w3 %> </li>
+                <li> <%= @ej.w4 %> </li>
+            </ul>
+            
+            <form action="/ejercicios/aprobar">
+                
+                <input type="hidden" name="excercise_id" class="form-control" value="<%= @ej.id %>">
+                
+                <button type="submit" class="btn btn-primary mb-2"> Aprobar </button>
+                
+            </form>
+            
+            <hr class="my-4">
+                
+            <form action="/ejercicios/rechazar">
+            
+                <input type="hidden" name="excercise_id" class="form-control" value="<%= @ej.id %>">
+                
+                <button type="submit" class="btn btn-danger mb-2" > Rechazar </button>
+                
+            </form>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<% end %>

@@ -1,0 +1,58 @@
+<h1>
+  All contentidos
+</h1>
+
+<a href="/contentidos/new">
+  Add a new contentido
+</a>
+
+<hr>
+
+<table class="table">
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Eje
+    </th>
+
+    <th>
+      Created at
+    </th>
+
+    <th>
+      Updated at
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @contentidos.each do |contentido| %>
+  <tr>
+    <td>
+      <%= contentido.id %>
+    </td>
+
+    <td>
+      <%= contentido.eje_id %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(contentido.created_at) %> ago
+    </td>
+
+    <td>
+      <%= time_ago_in_words(contentido.updated_at) %> ago
+    </td>
+
+    <td>
+      <a href="/contentidos/<%= contentido.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

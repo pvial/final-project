@@ -1,0 +1,154 @@
+<h1>
+  Pre ex #<%= @pre_ex.id %> details
+</h1>
+
+<a href="/pre_exes/<%= @pre_ex.id %>/edit">
+  Edit pre ex
+</a>
+
+<hr>
+
+<dl>
+  <dt>
+    Contenido
+  </dt>
+  <dd>
+    <%= @pre_ex.contenido_id %>
+  </dd>
+
+  <dt>
+    Molde
+  </dt>
+  <dd>
+    <%= @pre_ex.molde_id %>
+  </dd>
+
+  <dt>
+    Enunciado
+  </dt>
+  <dd>
+    <%= @pre_ex.enunciado %>
+  </dd>
+
+  <dt>
+    Imagen
+  </dt>
+  <dd>
+    <%= @pre_ex.imagen %>
+  </dd>
+
+  <dt>
+    Resp correcta
+  </dt>
+  <dd>
+    <%= @pre_ex.resp_correcta %>
+  </dd>
+
+  <dt>
+    W1
+  </dt>
+  <dd>
+    <%= @pre_ex.w1 %>
+  </dd>
+
+  <dt>
+    W2
+  </dt>
+  <dd>
+    <%= @pre_ex.w2 %>
+  </dd>
+
+  <dt>
+    W3
+  </dt>
+  <dd>
+    <%= @pre_ex.w3 %>
+  </dd>
+
+  <dt>
+    W4
+  </dt>
+  <dd>
+    <%= @pre_ex.w4 %>
+  </dd>
+
+  <dt>
+    Op1
+  </dt>
+  <dd>
+    <%= @pre_ex.op1 %>
+  </dd>
+
+  <dt>
+    Op2
+  </dt>
+  <dd>
+    <%= @pre_ex.op2 %>
+  </dd>
+
+  <dt>
+    Op3
+  </dt>
+  <dd>
+    <%= @pre_ex.op3 %>
+  </dd>
+
+  <dt>
+    Op4
+  </dt>
+  <dd>
+    <%= @pre_ex.op4 %>
+  </dd>
+
+  <dt>
+    Op5
+  </dt>
+  <dd>
+    <%= @pre_ex.op5 %>
+  </dd>
+
+  <dt>
+    Hint
+  </dt>
+  <dd>
+    <%= @pre_ex.hint %>
+  </dd>
+
+  <dt>
+    Dificultad
+  </dt>
+  <dd>
+    <%= @pre_ex.dificultad %>
+  </dd>
+
+  <dt>
+    Habilidad
+  </dt>
+  <dd>
+    <%= @pre_ex.habilidad %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@pre_ex.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@pre_ex.updated_at) %> ago
+  </dd>
+</dl>
+
+<a href="/delete_pre_ex/<%= @pre_ex.id %>">
+  Delete pre ex
+</a>
+
+<hr>
+
+<a href="/pre_exes">
+  Go back
+</a>

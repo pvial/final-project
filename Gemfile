@@ -15,9 +15,10 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "uglifier", ">= 1.3.0"
 
 group :production do
-  gem "pg"
+  gem "pg", "~> 0.18"
   gem "rails_12factor"
 end
+
 
 group :development, :test do
   gem "better_errors"
@@ -52,3 +53,6 @@ group :test do
   gem "webmock"
   gem "rspec-html-matchers"
 end
+
+# try
+gem 'mathjax-rails'

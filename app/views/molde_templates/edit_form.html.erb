@@ -1,0 +1,26 @@
+<!-- Validation failure messages -->
+<% if @molde.errors.any? %>
+  <% @molde.errors.full_messages.each do |message| %>
+    <div class="alert">
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<h1>
+  Edit molde #<%= @molde.id %>
+</h1>
+
+<hr>
+
+<form action="/update_molde/<%= @molde.id %>" method="post">
+  <button class="btn btn-block btn-outline-secondary">
+    Update molde
+  </button>
+</form>
+
+<hr>
+
+<a href="/moldes">
+  Go back
+</a>

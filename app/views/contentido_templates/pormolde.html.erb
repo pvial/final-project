@@ -1,0 +1,71 @@
+<div class="container">
+    <div style="height: 50px;"></div>
+            
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card border-secondary mb-3" style="min-height: 500px;">
+          <h6 class="card-header text-white bg-secondary mb-3">  Ejercicios por Molde </h6>
+          
+          <div class="card-body" align="left">
+            
+            <div class = "row">
+              <div> 
+                <a href="/contentidos/porcontenido" class="btn btn-primary btn-block" align="bottom">  Ver por Contenido </a>
+              </div>
+              
+              
+              <div> 
+                <a href="/contentidos/pordificultad" class="btn btn-primary btn-block" align="bottom">  Ver por Dificultad </a>
+              </div>
+              
+              
+              <div> 
+                <a href="/contentidos/pormolde" class="btn btn-primary btn-block" align="bottom">  Ver por Molde </a>
+              </div>
+              
+            </div>
+            <hr>
+
+            <table class="table">
+              <tr>
+                <th>
+                  Molde
+                </th>
+            
+                <th>
+                  # ejercicios (Muy Fácil / Fácil / Medio / Difícil / Muy Difícil )
+                </th>
+            
+              </tr>
+            
+              <% @moldes.each do |molde| %>
+              
+                  <% if @ejercicios.where(:molde_id => molde.id).count != 0 %>
+                      <tr>
+        
+                        <td>
+                            <% eje = Ejercicio.where(:molde_id => molde.id).last %>
+                          <a href="/ejercicios/<%= eje.id %>"> <%= molde.id %> </a>
+                        </td>
+                    
+                        <td>
+                            <% muyfac = @ejercicios.where(:molde_id => molde.id).where(:dificultad => 1).count %>
+                            <% fac = @ejercicios.where(:molde_id => molde.id).where(:dificultad => 2).count %>
+                            <% med = @ejercicios.where(:molde_id => molde.id).where(:dificultad => 3).count %>
+                            <% dif = @ejercicios.where(:molde_id => molde.id).where(:dificultad => 4).count %>
+                            <% muydif = @ejercicios.where(:molde_id => molde.id).where(:dificultad => 5).count %>
+                            
+                          <%= @ejercicios.where(:molde_id => molde.id).count %> (<%= muyfac %> / <%= fac %> / <%= med %> / <%= dif %> / <%= muydif %>)
+                        </td>
+                    
+                      </tr>
+                  <% end %>
+              <% end %>
+            </table>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

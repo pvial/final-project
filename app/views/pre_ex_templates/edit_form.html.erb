@@ -1,0 +1,179 @@
+<!-- Validation failure messages -->
+<% if @pre_ex.errors.any? %>
+  <% @pre_ex.errors.full_messages.each do |message| %>
+    <div class="alert">
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<h1>
+  Edit pre ex #<%= @pre_ex.id %>
+</h1>
+
+<hr>
+
+<form action="/update_pre_ex/<%= @pre_ex.id %>" method="post">
+  <!-- Label and input for contenido_id -->
+  <div class="form-group">
+    <label for="contenido_id">
+      Contenido
+    </label>
+
+    <input type="text" id="contenido_id" name="contenido_id" class="form-control" value="<%= @pre_ex.contenido_id %>">
+  </div>
+
+  <!-- Label and input for molde_id -->
+  <div class="form-group">
+    <label for="molde_id">
+      Molde
+    </label>
+
+    <input type="text" id="molde_id" name="molde_id" class="form-control" value="<%= @pre_ex.molde_id %>">
+  </div>
+
+  <!-- Label and input for enunciado -->
+  <div class="form-group">
+    <label for="enunciado">
+      Enunciado
+    </label>
+
+    <textarea id="enunciado" name="enunciado" class="form-control" rows="3"><%= @pre_ex.enunciado %></textarea>
+  </div>
+
+  <!-- Label and input for imagen -->
+  <div class="form-group">
+    <label for="imagen">
+      Imagen
+    </label>
+
+    <input type="text" id="imagen" name="imagen" class="form-control" value="<%= @pre_ex.imagen %>">
+  </div>
+
+  <!-- Label and input for resp_correcta -->
+  <div class="form-group">
+    <label for="resp_correcta">
+      Resp correcta
+    </label>
+
+    <textarea id="resp_correcta" name="resp_correcta" class="form-control" rows="3"><%= @pre_ex.resp_correcta %></textarea>
+  </div>
+
+  <!-- Label and input for w1 -->
+  <div class="form-group">
+    <label for="w1">
+      W1
+    </label>
+
+    <textarea id="w1" name="w1" class="form-control" rows="3"><%= @pre_ex.w1 %></textarea>
+  </div>
+
+  <!-- Label and input for w2 -->
+  <div class="form-group">
+    <label for="w2">
+      W2
+    </label>
+
+    <textarea id="w2" name="w2" class="form-control" rows="3"><%= @pre_ex.w2 %></textarea>
+  </div>
+
+  <!-- Label and input for w3 -->
+  <div class="form-group">
+    <label for="w3">
+      W3
+    </label>
+
+    <textarea id="w3" name="w3" class="form-control" rows="3"><%= @pre_ex.w3 %></textarea>
+  </div>
+
+  <!-- Label and input for w4 -->
+  <div class="form-group">
+    <label for="w4">
+      W4
+    </label>
+
+    <textarea id="w4" name="w4" class="form-control" rows="3"><%= @pre_ex.w4 %></textarea>
+  </div>
+
+  <!-- Label and input for op1 -->
+  <div class="form-group">
+    <label for="op1">
+      Op1
+    </label>
+
+    <textarea id="op1" name="op1" class="form-control" rows="3"><%= @pre_ex.op1 %></textarea>
+  </div>
+
+  <!-- Label and input for op2 -->
+  <div class="form-group">
+    <label for="op2">
+      Op2
+    </label>
+
+    <textarea id="op2" name="op2" class="form-control" rows="3"><%= @pre_ex.op2 %></textarea>
+  </div>
+
+  <!-- Label and input for op3 -->
+  <div class="form-group">
+    <label for="op3">
+      Op3
+    </label>
+
+    <textarea id="op3" name="op3" class="form-control" rows="3"><%= @pre_ex.op3 %></textarea>
+  </div>
+
+  <!-- Label and input for op4 -->
+  <div class="form-group">
+    <label for="op4">
+      Op4
+    </label>
+
+    <textarea id="op4" name="op4" class="form-control" rows="3"><%= @pre_ex.op4 %></textarea>
+  </div>
+
+  <!-- Label and input for op5 -->
+  <div class="form-group">
+    <label for="op5">
+      Op5
+    </label>
+
+    <textarea id="op5" name="op5" class="form-control" rows="3"><%= @pre_ex.op5 %></textarea>
+  </div>
+
+  <!-- Label and input for hint -->
+  <div class="form-group">
+    <label for="hint">
+      Hint
+    </label>
+
+    <textarea id="hint" name="hint" class="form-control" rows="3"><%= @pre_ex.hint %></textarea>
+  </div>
+
+  <!-- Label and input for dificultad -->
+  <div class="form-group">
+    <label for="dificultad">
+      Dificultad
+    </label>
+
+    <input type="text" id="dificultad" name="dificultad" class="form-control" value="<%= @pre_ex.dificultad %>">
+  </div>
+
+  <!-- Label and input for habilidad -->
+  <div class="form-group">
+    <label for="habilidad">
+      Habilidad
+    </label>
+
+    <input type="text" id="habilidad" name="habilidad" class="form-control" value="<%= @pre_ex.habilidad %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update pre ex
+  </button>
+</form>
+
+<hr>
+
+<a href="/pre_exes">
+  Go back
+</a>

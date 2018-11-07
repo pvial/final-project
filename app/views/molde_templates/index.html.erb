@@ -1,0 +1,50 @@
+<h1>
+  All moldes
+</h1>
+
+<a href="/moldes/new">
+  Add a new molde
+</a>
+
+<hr>
+
+<table class="table">
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Created at
+    </th>
+
+    <th>
+      Updated at
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @moldes.each do |molde| %>
+  <tr>
+    <td>
+      <%= molde.id %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(molde.created_at) %> ago
+    </td>
+
+    <td>
+      <%= time_ago_in_words(molde.updated_at) %> ago
+    </td>
+
+    <td>
+      <a href="/moldes/<%= molde.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

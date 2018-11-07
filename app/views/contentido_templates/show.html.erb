@@ -1,0 +1,42 @@
+<h1>
+  Contentido #<%= @contentido.id %> details
+</h1>
+
+<a href="/contentidos/<%= @contentido.id %>/edit">
+  Edit contentido
+</a>
+
+<hr>
+
+<dl>
+  <dt>
+    Eje
+  </dt>
+  <dd>
+    <%= @contentido.eje_id %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@contentido.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@contentido.updated_at) %> ago
+  </dd>
+</dl>
+
+<a href="/delete_contentido/<%= @contentido.id %>">
+  Delete contentido
+</a>
+
+<hr>
+
+<a href="/contentidos">
+  Go back
+</a>

@@ -1,0 +1,186 @@
+<h1>
+  All pre exes
+</h1>
+
+<a href="/pre_exes/new">
+  Add a new pre ex
+</a>
+
+<hr>
+
+<table class="table">
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Contenido
+    </th>
+
+    <th>
+      Molde
+    </th>
+
+    <th>
+      Enunciado
+    </th>
+
+    <th>
+      Imagen
+    </th>
+
+    <th>
+      Resp correcta
+    </th>
+
+    <th>
+      W1
+    </th>
+
+    <th>
+      W2
+    </th>
+
+    <th>
+      W3
+    </th>
+
+    <th>
+      W4
+    </th>
+
+    <th>
+      Op1
+    </th>
+
+    <th>
+      Op2
+    </th>
+
+    <th>
+      Op3
+    </th>
+
+    <th>
+      Op4
+    </th>
+
+    <th>
+      Op5
+    </th>
+
+    <th>
+      Hint
+    </th>
+
+    <th>
+      Dificultad
+    </th>
+
+    <th>
+      Habilidad
+    </th>
+
+    <th>
+      Created at
+    </th>
+
+    <th>
+      Updated at
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @pre_exes.each do |pre_ex| %>
+  <tr>
+    <td>
+      <%= pre_ex.id %>
+    </td>
+
+    <td>
+      <%= pre_ex.contenido_id %>
+    </td>
+
+    <td>
+      <%= pre_ex.molde_id %>
+    </td>
+
+    <td>
+      <%= pre_ex.enunciado %>
+    </td>
+
+    <td>
+      <%= pre_ex.imagen %>
+    </td>
+
+    <td>
+      <%= pre_ex.resp_correcta %>
+    </td>
+
+    <td>
+      <%= pre_ex.w1 %>
+    </td>
+
+    <td>
+      <%= pre_ex.w2 %>
+    </td>
+
+    <td>
+      <%= pre_ex.w3 %>
+    </td>
+
+    <td>
+      <%= pre_ex.w4 %>
+    </td>
+
+    <td>
+      <%= pre_ex.op1 %>
+    </td>
+
+    <td>
+      <%= pre_ex.op2 %>
+    </td>
+
+    <td>
+      <%= pre_ex.op3 %>
+    </td>
+
+    <td>
+      <%= pre_ex.op4 %>
+    </td>
+
+    <td>
+      <%= pre_ex.op5 %>
+    </td>
+
+    <td>
+      <%= pre_ex.hint %>
+    </td>
+
+    <td>
+      <%= pre_ex.dificultad %>
+    </td>
+
+    <td>
+      <%= pre_ex.habilidad %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(pre_ex.created_at) %> ago
+    </td>
+
+    <td>
+      <%= time_ago_in_words(pre_ex.updated_at) %> ago
+    </td>
+
+    <td>
+      <a href="/pre_exes/<%= pre_ex.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

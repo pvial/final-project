@@ -1,0 +1,234 @@
+<!--- vista aprobador --->
+<% if current_aprobador != nil %>
+  <div class="container">
+    <div style="height: 10px;"></div>
+    
+    <!--- Contador de pendientes --->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card border-warning mb-6">
+          <h4 class="card-header text-white bg-warning mb-6"> Ejercicios pendientes de aprobación </h4>
+          <div class="card-body" align="left">
+       
+            <div>
+              <form action="/ejercicios_pendientes" method="get">
+                  
+                  <!-- Contador de pendientes -->
+                
+                <h2> <%= @ejercicios.where(:aprobado => false).where(:bandera => false).count %></h2>
+                  
+                  <td>
+                    <button class="btn btn-secondary btn-block">
+                      Ir
+                    </button>
+                  </td>
+                </form>
+
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div style="height: 10px;"></div>
+    
+    <!--- Contador de aprobados --->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card border-success mb-6" >
+          <h4 class="card-header text-white bg-success mb-6"> Ejercicios ya aprobados </h4>
+          <div class="card-body" align="left">
+       
+            <div>
+              <form action="/ejercicios_aprobados" method="get">
+                  
+                  <!-- Contador de pendientes -->
+                
+                <h2><%= @ejercicios.where(:aprobado => true).count %> (<%= @ejercicios.where(:aprobado => true).where.not(:imagen => nil).count %> )</h2>
+                  
+                  <td>
+                    <button class="btn btn-secondary btn-block">
+                      Ir
+                    </button>
+                  </td>
+                </form>
+
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div style="height: 10px;"></div>
+    
+    <!--- Otros visores --->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card border-primary mb-6" >
+          <h4 class="card-header text-white bg-primary mb-6"> Otros contadores </h4>
+          <div class="card-body" align="left">
+       
+            <div>
+              
+              <div> 
+                <a href="/contentidos/porcontenido" class="btn btn-secondary btn-block" align="bottom">  Ver por Contenido </a>
+              </div>
+              
+              <div style="height: 10px;"></div>
+              
+              <div> 
+                <a href="/contentidos/pordificultad" class="btn btn-secondary btn-block" align="bottom">  Ver por Dificultad </a>
+              </div>
+              
+              <div style="height: 10px;"></div>
+              
+              <div> 
+                <a href="/contentidos/pormolde" class="btn btn-secondary btn-block" align="bottom">  Ver por Molde </a>
+              </div>
+
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<!--- vista no-loggeado --->
+<% elsif current_creador == nil %>
+  <div class="container">
+    <div style="height: 100px;">
+    </div>
+    
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="card" style="height: 500px;">
+          <div class="card-title">
+          </div>
+          
+          <div class="card-body" align="center">
+            <div style="height: 50px;">
+            </div>
+            
+            
+            <div style="height: 100px;">
+            </div>
+            
+            <div>
+              <a href="/creadors/sign_in/" class="btn btn-primary btn-block" align="bottom">
+                
+                  Inicia sesión como CREADOR
+              </a>
+            </div>
+            
+            <div style="height: 10px;">
+            </div>            
+            
+            <div>
+              <a href="/aprobadors/sign_in/" class="btn btn-warning btn-block" align="bottom">
+                
+                  Ingreso como APROBADOR
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--- vista creador --->
+<% else %>
+
+  <div class="container">
+    <div style="height: 50px;">
+    </div>
+    
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card border-primary mb-3" style="min-height: 500px; max-width: 40rem;">
+          <h4 class="card-header text-white bg-primary mb-3"> <i class="fa fa-chart-line fa-1x" style="color:primary"></i> Panel de creador </h4>
+          
+          <div class="card-body" align="left">
+              
+            <div style="height: 20px;"></div>
+            <div>
+                <a href="/pre_exes/new" class="btn btn-primary btn-block" align="bottom">
+                  <i class="fa fa-fw fa-plus" ></i>
+                    Crear nuevo ejercicio
+                </a>
+            </div>
+            
+            <div style="height: 20px;"></div>
+            <div>
+                <a href="/ejercicios" class="btn btn-secondary btn-block" align="bottom">
+                  <i class="fa fa-fw fa-plus" ></i>
+                    Crear gemelo
+                </a>
+            </div>
+            
+            
+            <div style="height: 30px;"></div>
+            
+            <!--- contador de rechazos --->
+            <div class="card border-warning mb-6">
+              <h6 class="card-header text-white bg-warning mb-6"> <i class= "fas fa-futbol" ></i> Requieren modificacion: </h6>
+              <div class="card-body" align="left">
+           
+                <div>
+                  <form action="/ejercicios_rechazados" method="get">
+                      
+                      <!-- Contador de rechazados -->
+                    
+                    <h2> <%= @ejercicios.where(:aprobado => false).where(:bandera => true).count %></h2>
+                      
+                      <td>
+                        <button class="btn btn-warning btn-block">
+                          Ver ejercicios
+                        </button>
+                      </td>
+                    </form>
+    
+                </div> 
+              </div>
+            </div>
+            
+            <div style="height: 10px;"></div>
+            
+            
+            
+          </div>
+        </div>
+      </div>
+      <!--- Otros visores --->
+      
+      <div class="col-md-4">
+        <div class="card border-primary mb-4" >
+          <h4 class="card-header text-white bg-primary mb-4"> Otros contadores </h4>
+          <div class="card-body" align="left">
+       
+            <div>
+              
+              <div> 
+                <a href="/contentidos/porcontenido" class="btn btn-secondary btn-block" align="bottom">  Ver por Contenido </a>
+              </div>
+              
+              <div style="height: 10px;"></div>
+              
+              <div> 
+                <a href="/contentidos/pordificultad" class="btn btn-secondary btn-block" align="bottom">  Ver por Dificultad </a>
+              </div>
+              
+              <div style="height: 10px;"></div>
+              
+              <div> 
+                <a href="/contentidos/pormolde" class="btn btn-secondary btn-block" align="bottom">  Ver por Molde </a>
+              </div>
+
+            </div> 
+          </div>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+  
+<% end %>

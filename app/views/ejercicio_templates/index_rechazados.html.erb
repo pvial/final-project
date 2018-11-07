@@ -1,0 +1,92 @@
+<div class="container">
+    <div style="height: 50px;"></div>
+            
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card border-danger mb-3" style="min-height: 500px;">
+          <h6 class="card-header text-white bg-danger mb-3">  Requieren modificación </h6>
+          
+          <div class="card-body" align="left">
+
+            <table class="table">
+              <tr>
+                <th>
+                  ID
+                </th>
+            
+                <th>
+                  Contenido
+                </th>
+                
+                <th>
+                  Creador
+                </th>
+                
+                <th>
+                  Aprobador
+                </th>
+                
+                <th>
+                  Comentario
+                </th>
+                
+                <% if current_creador != nil %>
+                  <th>
+                  </th>
+                <% end %>
+                
+                <% if current_creador != nil %>
+                  <th>
+                  </th>
+                <% end %>
+                
+              </tr>
+            
+              <% @ejercicios.each do |ejercicio| %>
+              <tr>
+                <td>
+                  <a href="/ejercicios/<%= ejercicio.id %>"> <%= ejercicio.id %> </a>
+                </td>
+            
+                <td>
+                  <%= Contentido.find(ejercicio.contenido_id).nombre %>
+                </td>
+            
+                <td>
+                  <%= Creador.find(ejercicio.creador_id).email %>
+                </td>
+            
+                <td>
+                  <%= Aprobador.find(ejercicio.aprobador_id).email %>
+                </td>    
+            
+                <td>
+                  <%= ejercicio.comentario %>
+                </td>
+                
+                <% if current_creador != nil %>
+                  <td>
+                    <a href="/ejercicios/<%= ejercicio.id %>/edit">
+                      Editar
+                    </a>
+                  </td>
+                <% end %>
+                
+                <% if current_creador != nil %>
+                  <td>
+                    <a href="/delete_ejercicio/<%= ejercicio.id %>" class="btn btn-danger btn-block" align="bottom">
+                
+                      Eliminiar
+                    </a>
+                    
+                  </td>
+                <% end %>
+                
+              </tr>
+              <% end %>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

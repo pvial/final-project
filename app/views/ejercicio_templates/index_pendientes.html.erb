@@ -1,0 +1,97 @@
+<div class="container">
+    <div style="height: 50px;"></div>
+            
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card border-secondary mb-3" style="min-height: 500px;">
+          <h6 class="card-header text-white bg-secondary mb-3">  Ejercicios por Aprobar: <%= @ejercicios.count %> </h6>
+          
+          <div class="card-body" align="left">
+            
+            <% if current_aprobador != nil %>
+            
+            <div> 
+              <a href="/ejercicios/visor_apr" class="btn btn-primary btn-block" align="bottom">  Ir a visor de aprobación </a>
+            </div>
+            
+            <% end %>
+            <hr>
+
+            <table class="table">
+              <tr>
+                <th>
+                  ID
+                </th>
+            
+                <th>
+                  Contenido
+                </th>
+            
+                <th>
+                  Creador
+                </th>
+            
+                <th>
+                  Gemelos aprobados
+                </th>
+                
+                <th>
+                  Comentario
+                </th>
+            
+                <th>
+                </th>
+                
+                <% if current_creador != nil %>
+                  <th>
+                  </th>
+                <% end %>
+              </tr>
+            
+              <% @ejercicios.each do |ejercicio| %>
+              <tr>
+                <td>
+                  <a href="/ejercicios/<%= ejercicio.id %>"> <%= ejercicio.id %> </a>
+                </td>
+            
+                <td>
+                  <%= Contentido.find(ejercicio.contenido_id).nombre %>
+                </td>
+            
+                <td>
+                  <%= Creador.find(ejercicio.creador_id).email %>
+                </td>
+            
+                <td>
+                  <%= Ejercicio.where(:aprobado => true).where(:molde_id => ejercicio.molde_id).count %>
+                </td>
+            
+                <td>
+                  <%= ejercicio.comentario %>
+                </td>
+            
+                <td>
+                  <a href="/ejercicios/<%= ejercicio.id %>">
+                    Ver Ejercicio
+                  </a>
+                </td>
+                
+                <% if current_creador != nil %>
+                  <td>
+                    <a href="/delete_ejercicio/<%= ejercicio.id %>" class="btn btn-danger btn-block" align="bottom">
+                
+                      Eliminiar
+                    </a>
+                    
+                  </td>
+                <% end %>
+              </tr>
+              <% end %>
+            </table>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

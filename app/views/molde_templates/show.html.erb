@@ -1,0 +1,35 @@
+<h1>
+  Molde #<%= @molde.id %> details
+</h1>
+
+<a href="/moldes/<%= @molde.id %>/edit">
+  Edit molde
+</a>
+
+<hr>
+
+<dl>
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@molde.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@molde.updated_at) %> ago
+  </dd>
+</dl>
+
+<a href="/delete_molde/<%= @molde.id %>">
+  Delete molde
+</a>
+
+<hr>
+
+<a href="/moldes">
+  Go back
+</a>

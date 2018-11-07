@@ -1,0 +1,237 @@
+<!-- Validation failure messages -->
+<% if @ejercicio.present? %>
+  <% if @ejercicio.errors.any? %>
+    <% @ejercicio.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1>
+  Add a new ejercicio
+</h1>
+
+<hr>
+
+<form action="/create_ejercicio" method="post">
+  <!-- Label and input for aprobado -->
+  <div class="form-check">
+    <input type="hidden" value="0" name="aprobado">
+    <input id="aprobado" class="form-check-input" name="aprobado" type="checkbox" <%= "checked" if @ejercicio.try(:aprobado) %>>
+
+    <label for="aprobado" class="form-check-label">
+      Aprobado
+    </label>
+  </div>
+
+  <!-- Label and input for contenido_id -->
+  <div class="form-group">
+    <label for="contenido_id">
+      Contenido
+    </label>
+
+    <input type="text" id="contenido_id" name="contenido_id" class="form-control" value="<%= @ejercicio.try(:contenido_id) %>">
+  </div>
+
+  <!-- Label and input for bandera -->
+  <div class="form-check">
+    <input type="hidden" value="0" name="bandera">
+    <input id="bandera" class="form-check-input" name="bandera" type="checkbox" <%= "checked" if @ejercicio.try(:bandera) %>>
+
+    <label for="bandera" class="form-check-label">
+      Bandera
+    </label>
+  </div>
+
+  <!-- Label and input for comentario -->
+  <div class="form-group">
+    <label for="comentario">
+      Comentario
+    </label>
+
+    <textarea id="comentario" name="comentario" class="form-control" rows="3"><%= @ejercicio.try(:comentario) %></textarea>
+  </div>
+
+  <!-- Label and input for molde_id -->
+  <div class="form-group">
+    <label for="molde_id">
+      Molde
+    </label>
+
+    <input type="text" id="molde_id" name="molde_id" class="form-control" value="<%= @ejercicio.try(:molde_id) %>">
+  </div>
+
+  <!-- Label and input for enunciado -->
+  <div class="form-group">
+    <label for="enunciado">
+      Enunciado
+    </label>
+
+    <textarea id="enunciado" name="enunciado" class="form-control" rows="3"><%= @ejercicio.try(:enunciado) %></textarea>
+  </div>
+
+  <!-- Label and input for imagen -->
+  <div class="form-group">
+    <label for="imagen">
+      Imagen
+    </label>
+
+    <input type="text" id="imagen" name="imagen" class="form-control" value="<%= @ejercicio.try(:imagen) %>">
+  </div>
+
+  <!-- Label and input for resp_correcta -->
+  <div class="form-group">
+    <label for="resp_correcta">
+      Resp correcta
+    </label>
+
+    <input type="text" id="resp_correcta" name="resp_correcta" class="form-control" value="<%= @ejercicio.try(:resp_correcta) %>">
+  </div>
+
+  <!-- Label and input for w1 -->
+  <div class="form-group">
+    <label for="w1">
+      W1
+    </label>
+
+    <textarea id="w1" name="w1" class="form-control" rows="3"><%= @ejercicio.try(:w1) %></textarea>
+  </div>
+
+  <!-- Label and input for w2 -->
+  <div class="form-group">
+    <label for="w2">
+      W2
+    </label>
+
+    <textarea id="w2" name="w2" class="form-control" rows="3"><%= @ejercicio.try(:w2) %></textarea>
+  </div>
+
+  <!-- Label and input for w3 -->
+  <div class="form-group">
+    <label for="w3">
+      W3
+    </label>
+
+    <textarea id="w3" name="w3" class="form-control" rows="3"><%= @ejercicio.try(:w3) %></textarea>
+  </div>
+
+  <!-- Label and input for w4 -->
+  <div class="form-group">
+    <label for="w4">
+      W4
+    </label>
+
+    <textarea id="w4" name="w4" class="form-control" rows="3"><%= @ejercicio.try(:w4) %></textarea>
+  </div>
+
+  <!-- Label and input for op1 -->
+  <div class="form-group">
+    <label for="op1">
+      Op1
+    </label>
+
+    <textarea id="op1" name="op1" class="form-control" rows="3"><%= @ejercicio.try(:op1) %></textarea>
+  </div>
+
+  <!-- Label and input for op2 -->
+  <div class="form-group">
+    <label for="op2">
+      Op2
+    </label>
+
+    <textarea id="op2" name="op2" class="form-control" rows="3"><%= @ejercicio.try(:op2) %></textarea>
+  </div>
+
+  <!-- Label and input for op3 -->
+  <div class="form-group">
+    <label for="op3">
+      Op3
+    </label>
+
+    <textarea id="op3" name="op3" class="form-control" rows="3"><%= @ejercicio.try(:op3) %></textarea>
+  </div>
+
+  <!-- Label and input for op4 -->
+  <div class="form-group">
+    <label for="op4">
+      Op4
+    </label>
+
+    <textarea id="op4" name="op4" class="form-control" rows="3"><%= @ejercicio.try(:op4) %></textarea>
+  </div>
+
+  <!-- Label and input for op5 -->
+  <div class="form-group">
+    <label for="op5">
+      Op5
+    </label>
+
+    <textarea id="op5" name="op5" class="form-control" rows="3"><%= @ejercicio.try(:op5) %></textarea>
+  </div>
+
+  <!-- Label and input for hint -->
+  <div class="form-group">
+    <label for="hint">
+      Hint
+    </label>
+
+    <textarea id="hint" name="hint" class="form-control" rows="3"><%= @ejercicio.try(:hint) %></textarea>
+  </div>
+
+  <!-- Label and input for dificultad -->
+  <div class="form-group">
+    <label for="dificultad">
+      Dificultad
+    </label>
+
+    <input type="text" id="dificultad" name="dificultad" class="form-control" value="<%= @ejercicio.try(:dificultad) %>">
+  </div>
+
+  <!-- Label and input for habilidad -->
+  <div class="form-group">
+    <label for="habilidad">
+      Habilidad
+    </label>
+
+    <input type="text" id="habilidad" name="habilidad" class="form-control" value="<%= @ejercicio.try(:habilidad) %>">
+  </div>
+
+  <!-- Label and input for last_pre_ex_id -->
+  <div class="form-group">
+    <label for="last_pre_ex_id">
+      Last pre ex
+    </label>
+
+    <input type="text" id="last_pre_ex_id" name="last_pre_ex_id" class="form-control" value="<%= @ejercicio.try(:last_pre_ex_id) %>">
+  </div>
+
+  <!-- Label and input for creador_id -->
+  <div class="form-group">
+    <label for="creador_id">
+      Creador
+    </label>
+
+    <input type="text" id="creador_id" name="creador_id" class="form-control" value="<%= @ejercicio.try(:creador_id) %>">
+  </div>
+
+  <!-- Label and input for aprobador_id -->
+  <div class="form-group">
+    <label for="aprobador_id">
+      Aprobador
+    </label>
+
+    <input type="text" id="aprobador_id" name="aprobador_id" class="form-control" value="<%= @ejercicio.try(:aprobador_id) %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create ejercicio
+  </button>
+</form>
+
+<hr>
+
+<a href="/ejercicios">
+  Go back
+</a>

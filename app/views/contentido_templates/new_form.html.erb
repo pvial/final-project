@@ -1,0 +1,37 @@
+<!-- Validation failure messages -->
+<% if @contentido.present? %>
+  <% if @contentido.errors.any? %>
+    <% @contentido.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1>
+  Add a new contentido
+</h1>
+
+<hr>
+
+<form action="/create_contentido" method="post">
+  <!-- Label and input for eje_id -->
+  <div class="form-group">
+    <label for="eje_id">
+      Eje
+    </label>
+
+    <input type="text" id="eje_id" name="eje_id" class="form-control" value="<%= @contentido.try(:eje_id) %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create contentido
+  </button>
+</form>
+
+<hr>
+
+<a href="/contentidos">
+  Go back
+</a>

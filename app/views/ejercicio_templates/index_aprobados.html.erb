@@ -1,0 +1,86 @@
+<div class="container">
+    <div style="height: 50px;"></div>
+            
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card border-success mb-3" style="min-height: 500px;">
+          <h6 class="card-header text-white bg-success mb-3">  Ejercicios aprobados: <%= @ejercicios.count %> </h6>
+          
+          <div class="card-body" align="left">
+            
+            <table class="table">
+              <tr>
+                <th>
+                  ID
+                </th>
+            
+                <th>
+                  Contenido
+                </th>
+                
+                <th>
+                  Creador
+                </th>
+                
+                <th>
+                  Aprobador
+                </th>
+                
+                <th>
+                  Gemelos aprobados
+                </th>
+                
+                <th>
+                  Molde
+                </th>
+                
+              <% if current_aprobador != nil %>
+                <th>
+                </th>
+              <% end %>
+              
+              </tr>
+            
+              <% @ejercicios.each do |ejercicio| %>
+              <tr>
+                <td>
+                  <a href="/ejercicios/<%= ejercicio.id %>"> <%= ejercicio.id %> </a>
+                </td>
+            
+                <td>
+                  <%= Contentido.find(ejercicio.contenido_id).nombre %>
+                </td>
+            
+                <td>
+                  <%= Creador.find(ejercicio.creador_id).email %>
+                </td>
+            
+                <td>
+                  <%= Aprobador.find(ejercicio.aprobador_id).email %>
+                </td>    
+            
+                <td>
+                  <%= Ejercicio.where(:aprobado => true).where(:molde_id => ejercicio.molde_id).count %>
+                </td>
+            
+                <td>
+                  <%= Molde.find(ejercicio.molde_id).id %>
+                </td>
+                
+                <% if current_aprobador != nil %>
+                <td>
+                  <a href="/ejercicios/<%= ejercicio.id %>">
+                    Modificar status
+                  </a>
+                </td>
+                <% end %>
+                
+              </tr>
+              <% end %>
+            </table>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
