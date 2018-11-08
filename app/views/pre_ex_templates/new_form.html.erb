@@ -12,6 +12,24 @@
           </h6>
           
           <div class="card-body" align="left">
+            <!--- upload imagen --->
+            <div class = "row">
+              <div class="col-md-6">
+                <div class="card-body" align="left">
+                  <%= form_tag uploads_path, enctype: 'multipart/form-data' do %>
+                  	<%= file_field_tag :file  %>
+                  	<%= submit_tag @mensaje.try(:name) %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card-body" align="left">
+                  <p> <%= @mensaje %> </p>
+                </div>
+              </div>
+            </div>
+            
+            <hr> 
             
             <form action="/create_pre_ex" method="post">
               
@@ -47,23 +65,23 @@
                   </div>
                 </div>
               
-                <!-- Label and input for imagen -->
+                <!-- Label and input for check de imagen -->
                 <div class="col-md-5">
+                 
+                  <!--- check box --->
                   <div class="form-group">
-                    <label for="imagen">
-                      Imagen
-                    </label>
-                    <div class="input-group mb-3">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="inputGroupFile02">
-                        <label class="custom-file-label" for="inputGroupFile02">Choose file (placeholder) </label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text" id="">Upload</span>
-                      </div>
+                    <div class="custom-control custom-checkbox">
+                      
+                      <input type="hidden" value=0 name="subi_imagen">
+                      <input id="testName"  type="checkbox" value='1' name="subi_imagen" class="custom-control-input">
+
+                      <label class="custom-control-label" for="testName"> Subí/Actualicé la imagen </label>
                     </div>
+
                   </div>
+                  
                 </div>
+              
               </div>
             
               <hr>
@@ -253,8 +271,8 @@
                             <!--- imagen --->
                             <div class="col-md-3" style="heigth: 100%;">
                                 <div class="row" style="heigth: 50%;">
-                                  <div>
-                                    Placeholder para imagen
+                                  <div class="holder">
+                                    <img src="<%= @draft.imagen %>" alt="Chart" style="width:400px;">
                                   </div>
                                 </div>
                                 
@@ -302,6 +320,7 @@
                           <!--- Si no hay draft --->
                           <div class="row" style="min-height: 50x;">
                             <div>
+                              
                               <h6>  Presione previsualizar  </h6> 
                             </div>
                           </div>
@@ -347,6 +366,7 @@
                     <input type="hidden" id="op5" name="op5" class="form-control" value="<%= @draft.op5 %>">
                     
                     <input type="hidden" id="solucion" name="solucion" class="form-control" value="<%= @draft.solucion %>">
+                    <input type="hidden" id="imagen" name="imagen" class="form-control" value="<%= @draft.imagen %>">
   
                     
                     <button class="btn btn-warning btn-block">
@@ -383,6 +403,7 @@
                     <input type="hidden" id="op5" name="op5" class="form-control" value="<%= @draft.op5 %>">
                     
                     <input type="hidden" id="solucion" name="solucion" class="form-control" value="<%= @draft.solucion %>">
+                    <input type="hidden" id="imagen" name="imagen" class="form-control" value="<%= @draft.imagen %>">
   
                     
                     <button class="btn btn-primary btn-block">

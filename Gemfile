@@ -54,5 +54,9 @@ group :test do
   gem "rspec-html-matchers"
 end
 
-# try
+# Math visor
 gem 'mathjax-rails'
+
+# AWS storage de imagenes y archivos
+# Gemfile
+gem 'aws-sdk', '< 2.0'

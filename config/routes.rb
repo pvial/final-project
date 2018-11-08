@@ -1,10 +1,20 @@
 Rails.application.routes.draw do
+  get 'uploads/new'
+
+  get 'uploads/create'
+
+  get 'uploads/index'
+
   root "ejercicios#land"
   
   devise_for :aprobadors
   devise_for :creadors
   # Routes for the Molde resource:
-
+  
+  # para manejo de archivos
+  resources :uploads
+  #root 'uploads#new'
+  
   # CREATE
   get("/moldes/new", { :controller => "moldes", :action => "new_form" })
   post("/create_molde", { :controller => "moldes", :action => "create_row" })

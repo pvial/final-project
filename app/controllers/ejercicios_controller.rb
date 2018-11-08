@@ -90,6 +90,7 @@ class EjerciciosController < ApplicationController
     @ejercicio.last_pre_ex_id = params.fetch("last_pre_ex_id")
     @ejercicio.creador_id = current_creador.id
     @ejercicio.solucion = params.fetch("solucion")
+    @ejercicio.imagen = params.fetch("imagen")
 
     if @ejercicio.valid?
       @ejercicio.save
@@ -126,6 +127,7 @@ class EjerciciosController < ApplicationController
     @ejercicio.last_pre_ex_id = params.fetch("last_pre_ex_id")
     @ejercicio.creador_id = current_creador.id
     @ejercicio.solucion = params.fetch("solucion")
+    @ejercicio.imagen = params.fetch("imagen")
     
     @draft = PreEx.find(params.fetch("last_pre_ex_id"))
     @molde = Molde.find(params.fetch("molde_id"))
@@ -192,6 +194,7 @@ class EjerciciosController < ApplicationController
     @ejercicio.last_pre_ex_id = params.fetch("last_pre_ex_id")
     @ejercicio.creador_id = current_creador.id
     @ejercicio.solucion = params.fetch("solucion")
+    @ejercicio.imagen = params.fetch("imagen")
 
     if @ejercicio.valid?
       @ejercicio.save
@@ -228,6 +231,7 @@ class EjerciciosController < ApplicationController
     @ejercicio.last_pre_ex_id = params.fetch("last_pre_ex_id")
     @ejercicio.creador_id = current_creador.id
     @ejercicio.solucion = params.fetch("solucion")
+    @ejercicio.imagen = params.fetch("imagen")
     
     @draft = PreEx.find(params.fetch("last_pre_ex_id"))
     @molde = Molde.find(params.fetch("molde_id"))

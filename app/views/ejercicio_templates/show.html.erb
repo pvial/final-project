@@ -11,59 +11,89 @@
                 <!--- presentacion de enunciado (y opciones) --->
                 <div class="row">
                   <div class="card border-secondary mb-3" style="min-height: 500px; width:100%;">
-                  <h6 class="card-header text-white bg-secondary mb-3">  Ver ejercicio </h6>
-                  <div class="card-body" align="left">
-        
+                    <h6 class="card-header text-white bg-secondary mb-3">  Ver ejercicio </h6>
                     
-                    <h6> Enunciado </h6>
-                    <p> <%= @ej.enunciado %> </p>
+                    <div class="card-body" align="left">
+          
+                      <!--- presentacion de enunciado (y opciones) --->
+                      <div class="row">  
+                      <div class="card-body" align="left">
                     
-                    <div style="height: 20px;"> </div>
+                        <h6> Enunciado </h6>
+                        <p> <%= @ej.enunciado %> </p>
+                        
+                        <div style="height: 20px;"> 
+                        </div>
+                        
+                        <% if @ej.op1 != "" %>
+                          <h6> Opciones:   </h6>
+                          <ul>
+  
+                          <% if @ej.op1 != "" %>
+                            <li> <%= @ej.op1 %>  </li>
+                          <% end %>
+                          
+                          <% if @ej.op2 != "" %>
+                            <li> <%= @ej.op2 %>  </li>
+                          <% end %>
+                          
+                          <% if @ej.op3 != "" %>
+                            <li> <%= @ej.op3 %>  </li>
+                          <% end %>
+                          
+                          <% if @ej.op4 != "" %>
+                            <li> <%= @ej.op4 %>  </li>
+                          <% end %>
+                          
+                          <% if @ej.op5 != "" %>
+                            <li> <%= @ej.op5 %>  </li>
+                          <% end %>
+                          
+                          </ul>
+                        <% end %>
                     
-                    <% if @ej.op1 != "" %>
-                      <h6> Opciones:  </h6>
-                    <% end %>
-                    
-                    <% if @ej.op1 != "" %>
-                      <p> <%= @ej.op1 %>  </p>
-                    <% end %>
-                    
-                    <% if @ej.op2 != "" %>
-                      <p> <%= @ej.op2 %>  </p>
-                    <% end %>
-                    
-                    <% if @ej.op3 != "" %>
-                      <p> <%= @ej.op3 %>  </p>
-                    <% end %>
-                    
-                    <% if @ej.op4 != "" %>
-                      <p> <%= @ej.op4 %>  </p>
-                    <% end %>
-                    
-                    <% if @ej.op5 != "" %>
-                      <p> <%= @ej.op5 %>  </p>
-                    <% end %>
-                    
-                    
-                    
-                    <!--- Respuestas --->
-                    <div style="height: 25px;">
+                      </div> 
                     </div>
-                    <h6> Respuesta correcta</h6>
-                    <ul>
-                        <li> <%= @ej.resp_correcta %> </li>
-                    </ul>
                     
-                    <h6> Distractores </h6>
-                    <ul>
-                        <li> <%= @ej.w1 %> </li>
-                        <li> <%= @ej.w2 %> </li>
-                        <li> <%= @ej.w3 %> </li>
-                        <li> <%= @ej.w4 %> </li>
-                    </ul>
+                      <!--- respuestas e imagen --->
+                      <div class="row">
+                        <div style="height: 10px;">
+                        </div>
+                      
+                        <!--- Respuestas --->
+                        <div class="col-md-4">  
+                          <div class="card-body" align="left">
+      
+                            <h6> Respuesta correcta</h6>
+                            <ul>
+                                <li> <%= @ej.resp_correcta %> </li>
+                            </ul>
+                            
+                            <h6> Distractores </h6>
+                            <ul>
+                                <li> <%= @ej.w1 %> </li>
+                                <li> <%= @ej.w2 %> </li>
+                                <li> <%= @ej.w3 %> </li>
+                                <li> <%= @ej.w4 %> </li>
+                            </ul>
+      
+                          </div>
+                        </div>
+    
+                        <!--- imagen --->
+                        <div class="col-md-4" style="heigth: 100%;">
+                          <div class="card-body" style="heigth: 50%;">
+                            <div class="holder">
+                              <img src="<%= @ej.imagen %>" alt="Chart" style="width:400px;">
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>  
+                      
+                    </div>
 
                   </div>
-                </div>
                 </div>
                 
                 <div style="height: 5px;"></div>
