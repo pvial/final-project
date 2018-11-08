@@ -1,0 +1,37 @@
+﻿EJE,EJE_ID,CONTENIDO,# Ej,id
+NÚMEROS,2,Números racionales,60,3
+NÚMEROS,2,Números reales,60,4
+NÚMEROS,2,Números complejos,30,5
+NÚMEROS,2,Potencias,60,6
+NÚMEROS,2,Raíces,60,7
+NÚMEROS,2,Logaritmos,60,8
+ÁLGEBRA,3,Expresiones algebraicas,30,9
+ÁLGEBRA,3,Ecuaciones de primer grado,30,10
+ÁLGEBRA,3,Ecuaciones de segundo grado,40,11
+ÁLGEBRA,3,Función lineal y afín,30,12
+ÁLGEBRA,3,Función cuadrática,50,13
+ÁLGEBRA,3,"Función exponencial, logarítmica y raíz",60,14
+ÁLGEBRA,3,Inecuaciones y sistemas de inecuaciones,50,15
+ÁLGEBRA,3,Sistemas de ecuaciones,40,16
+ÁLGEBRA,3,Fracciones algebraicas,30,17
+GEOMETRÍA,4,Círculo y circunferencia,30,18
+GEOMETRÍA,4,Cuerpos geométricos,30,19
+GEOMETRÍA,4,Geometría proporcional,60,20
+GEOMETRÍA,4,"Puntos, planos y vectores",40,21
+GEOMETRÍA,4,Semejanza,30,22
+GEOMETRÍA,4,Congruencia,20,23
+GEOMETRÍA,4,Transformaciones isométricas,30,24
+GEOMETRÍA,4,Ecuación de la recta,60,25
+GEOMETRÍA,4,Homotecia,30,26
+DATOS Y AZAR,5,Datos agrupados en intervalos,30,27
+DATOS Y AZAR,5,Medidas de dispersión,20,28
+DATOS Y AZAR,5,Análisis de dos conjuntos de datos,20,29
+DATOS Y AZAR,5,Muestreo aleatorio,20,30
+DATOS Y AZAR,5,Estadística inferencial,20,31
+DATOS Y AZAR,5,Técnicas de conteo,30,32
+DATOS Y AZAR,5,Probabilidad frecuencial y teórica,60,33
+DATOS Y AZAR,5,Suma y producto de probabilidades,30,34
+DATOS Y AZAR,5,Probabilidad condicional,20,35
+DATOS Y AZAR,5,Variable aleatoria discreta,30,36
+DATOS Y AZAR,5,Variable aleatoria continua,20,37
+DATOS Y AZAR,5,Distribución normal y binomial,20,38
