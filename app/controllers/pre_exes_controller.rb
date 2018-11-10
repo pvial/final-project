@@ -34,7 +34,7 @@ class PreExesController < ApplicationController
     @pre_ex.molde_id = params.fetch("molde_id")
     @pre_ex.enunciado = params.fetch("enunciado")
     
-    if params.fetch("subi_imagen") != 0
+    if params.fetch("subi_imagen") == "on"
       @pre_ex.imagen = Upload.last.url
     end 
     
@@ -72,7 +72,7 @@ class PreExesController < ApplicationController
     @pre_ex.molde_id = params.fetch("molde_id")
     @pre_ex.enunciado = params.fetch("enunciado")
     
-    if params.fetch("subi_imagen") != 0
+    if params.fetch("subi_imagen") == "on"
       @pre_ex.imagen = Upload.last.url
     end
     
@@ -117,7 +117,7 @@ class PreExesController < ApplicationController
     @pre_ex.molde_id = params.fetch("molde_id")
     @pre_ex.enunciado = params.fetch("enunciado")
     
-    if params.fetch("subi_imagen") != 0
+    if params.fetch("subi_imagen") == "on"
       @pre_ex.imagen = Upload.last.url
     end
     

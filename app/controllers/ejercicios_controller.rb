@@ -73,7 +73,7 @@ class EjerciciosController < ApplicationController
     @ejercicio.bandera = false
     @ejercicio.molde_id = params.fetch("molde_id")
     @ejercicio.enunciado = params.fetch("enunciado")
-    @ejercicio.imagen = nil
+    @ejercicio.imagen = params.fetch("imagen")
     @ejercicio.resp_correcta = params.fetch("resp_correcta")
     @ejercicio.w1 = params.fetch("w1")
     @ejercicio.w2 = params.fetch("w2")
@@ -110,7 +110,7 @@ class EjerciciosController < ApplicationController
     @ejercicio.bandera = false
     @ejercicio.molde_id = params.fetch("molde_id")
     @ejercicio.enunciado = params.fetch("enunciado")
-    @ejercicio.imagen = nil
+    @ejercicio.imagen = params.fetch("imagen")
     @ejercicio.resp_correcta = params.fetch("resp_correcta")
     @ejercicio.w1 = params.fetch("w1")
     @ejercicio.w2 = params.fetch("w2")
@@ -177,7 +177,7 @@ class EjerciciosController < ApplicationController
     @ejercicio.bandera = false
     @ejercicio.molde_id = params.fetch("molde_id")
     @ejercicio.enunciado = params.fetch("enunciado")
-    @ejercicio.imagen = nil
+    @ejercicio.imagen = params.fetch("imagen")
     @ejercicio.resp_correcta = params.fetch("resp_correcta")
     @ejercicio.w1 = params.fetch("w1")
     @ejercicio.w2 = params.fetch("w2")
@@ -214,7 +214,7 @@ class EjerciciosController < ApplicationController
     @ejercicio.bandera = false
     @ejercicio.molde_id = params.fetch("molde_id")
     @ejercicio.enunciado = params.fetch("enunciado")
-    @ejercicio.imagen = nil
+    @ejercicio.imagen = params.fetch("imagen")
     @ejercicio.resp_correcta = params.fetch("resp_correcta")
     @ejercicio.w1 = params.fetch("w1")
     @ejercicio.w2 = params.fetch("w2")

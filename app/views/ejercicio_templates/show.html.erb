@@ -83,9 +83,11 @@
                         <!--- imagen --->
                         <div class="col-md-4" style="heigth: 100%;">
                           <div class="card-body" style="heigth: 50%;">
-                            <div class="holder">
-                              <img src="<%= @ej.imagen %>" alt="Chart" style="width:400px;">
-                            </div>
+                            <% if @ej.imagen!= nil %>
+                              <div class="holder">
+                                <img src="<%= @ej.imagen %>" alt="Chart" style="width:400px;">
+                              </div>
+                            <% end %>
                           </div>
                           
                         </div>

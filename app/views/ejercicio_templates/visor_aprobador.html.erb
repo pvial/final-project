@@ -81,9 +81,11 @@
                     <!--- imagen --->
                     <div class="col-md-4" style="heigth: 100%;">
                       <div class="card-body" style="heigth: 50%;">
-                        <div class="holder">
-                          <img src="<%= @ej.imagen %>" alt="Chart" style="width:300px;">
-                        </div>
+                        <% if @ej.imagen!= nil %>
+                          <div class="holder">
+                            <img src="<%= @ej.imagen %>" alt="Chart" style="width:300px;">
+                          </div>
+                        <% end %>  
                       </div>
                       
                     </div>
@@ -107,7 +109,7 @@
                   <!--- Solución  --->
                   <div class="col-md-12">
                       <div class="card border-secondary" style="width: 100%;">
-                        <h6>  Solución: </h6> <br> <pre><%= @ej.solucion %></pre>
+                        <h6>  Solución: </h6> <br> <p><%= @ej.solucion %></p>
                       </div>
                   </div>
                 </div>
