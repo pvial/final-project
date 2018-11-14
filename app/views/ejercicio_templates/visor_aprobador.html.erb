@@ -9,7 +9,7 @@
             <div class="row">
               
               <!--- enunciado y respuestas, imagen y opciones --->
-              <div class="col-md-6">
+              <div class="col-md-9">
                 <div class="card border-secondary mb-3" style="min-height: 500px;">
                   <h6 class="card-header text-white bg-secondary mb-3">  Previsualización </h6>
                   
@@ -18,7 +18,7 @@
                     <div class="card-body" align="left">
                   
                       <h6> Enunciado </h6>
-                      <p> <%= @ej.enunciado %> </p>
+                      <p> <%= @ej.enunciado.gsub(/\n/,"<br/>").html_safe %> </p>
                       
                       <div style="height: 20px;"> 
                       </div>
@@ -94,26 +94,7 @@
                 </div>
               </div>
               
-              <!--- Solucion y hint --->
-              <div class="col-md-3">
-                <div class="card border-secondary mb-3" style="min-height: 500px;">
-                  <h6 class="card-header text-white bg-secondary mb-3">  Solución y Hint </h6>
-                  
-                  <!--- Hint --->
-                  <div class="col-md-12">
-                      <div class="card border-secondary" style="width: 100%;">
-                        <h6>  Hint: </h6> <br> <p><%= @ej.hint %></p>
-                      </div>
-                  </div>
-                        
-                  <!--- Solución  --->
-                  <div class="col-md-12">
-                      <div class="card border-secondary" style="width: 100%;">
-                        <h6>  Solución: </h6> <br> <p><%= @ej.solucion %></p>
-                      </div>
-                  </div>
-                </div>
-              </div>
+              
               
               
               <!--- otros detalles --->
@@ -194,6 +175,30 @@
                         </form>  
                     </div>
                 
+            </div>
+            
+            <!--- Solucion y hint --->
+            <div class="row"> 
+              
+              <div class="col-md-12">
+                <div class="card border-secondary mb-3" style="min-height: 500px;">
+                  <h6 class="card-header text-white bg-secondary mb-3">  Solución y Hint </h6>
+                  
+                  <!--- Hint --->
+                  <div class="col-md-12">
+                      <div class="card border-secondary" style="width: 100%;">
+                        <h6>  Hint: </h6> <br> <p><%= @ej.hint.gsub(/\n/,"<br/>").html_safe %></p>
+                      </div>
+                  </div>
+                        
+                  <!--- Solución  --->
+                  <div class="col-md-12">
+                      <div class="card border-secondary" style="width: 100%;">
+                        <h6>  Solución: </h6> <br> <p><%= @ej.solucion.gsub(/\n/,"<br/>").html_safe %></p>
+                      </div>
+                  </div>
+                </div>
+              </div>
             </div>
         </div>
     

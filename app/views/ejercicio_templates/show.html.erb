@@ -20,7 +20,7 @@
                       <div class="card-body" align="left">
                     
                         <h6> Enunciado </h6>
-                        <p> <%= @ej.enunciado %> </p>
+                        <p> <%= @ej.enunciado.gsub(/\n/,"<br/>").html_safe %> </p>
                         
                         <div style="height: 20px;"> 
                         </div>

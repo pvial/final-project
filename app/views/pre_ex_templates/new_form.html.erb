@@ -214,7 +214,7 @@
                             
                             <div>           
                               <h6> Enunciado </h6> 
-                              <p> <%= @draft.enunciado %> </p>
+                              <p> <%= @draft.enunciado.gsub(/\n/,"<br/>").html_safe %> </p>
                               
                               <div style="height: 10px;"> </div>
                               
@@ -302,7 +302,7 @@
                           <!--- Hint --->
                           <div class="row" style="min-height: 50px;">  
                             <div class="card border-secondary" style="width: 100%;">
-                                  <h6>  Hint: </h6><p><%= @draft.hint %></p>
+                                  <h6>  Hint: </h6><p><%= @draft.hint.gsub(/\n/,"<br/>").html_safe %></p>
                             </div>              
                           </div>
                           
@@ -311,7 +311,7 @@
                           <!--- Solución --->
                           <div class="row" style="min-height: 50x;">
                             <div class="card border-secondary" style="width: 100%;">
-                              <h6>  Solucion:  </h6> <br> <pre><%= @draft.solucion %></pre>
+                              <h6>  Solucion:  </h6> <br> <p><%= @draft.solucion.gsub(/\n/,"<br/>").html_safe %></p>
                             </div>
                             
                           </div>
