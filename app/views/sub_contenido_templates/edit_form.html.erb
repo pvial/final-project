@@ -1,0 +1,44 @@
+<!-- Validation failure messages -->
+<% if @sub_contenido.errors.any? %>
+  <% @sub_contenido.errors.full_messages.each do |message| %>
+    <div class="alert">
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<h1>
+  Edit sub contenido #<%= @sub_contenido.id %>
+</h1>
+
+<hr>
+
+<form action="/update_sub_contenido/<%= @sub_contenido.id %>" method="post">
+  <!-- Label and input for contenido_id -->
+  <div class="form-group">
+    <label for="contenido_id">
+      Contenido
+    </label>
+
+    <input type="text" id="contenido_id" name="contenido_id" class="form-control" value="<%= @sub_contenido.contenido_id %>">
+  </div>
+
+  <!-- Label and input for nombre -->
+  <div class="form-group">
+    <label for="nombre">
+      Nombre
+    </label>
+
+    <textarea id="nombre" name="nombre" class="form-control" rows="3"><%= @sub_contenido.nombre %></textarea>
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update sub contenido
+  </button>
+</form>
+
+<hr>
+
+<a href="/sub_contenidos">
+  Go back
+</a>

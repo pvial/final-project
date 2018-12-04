@@ -36,7 +36,16 @@
                     <label for="contenido">
                       Contenido
                     </label>
-                        <%= select_tag("contenido_id", options_from_collection_for_select(Contentido.all, :id, :nombre,  @draft.try(:contenido_id)  ), :class => "form-control", :value => @draft.try(:contenido_id) ) %>
+                        <%= select_tag("contenido_id", options_from_collection_for_select(Contentido.where(:final => 1), :id, :nombre,  @draft.try(:contenido_id)  ), :class => "form-control", :value => @draft.try(:contenido_id) ) %>
+                  </div>
+                </div>
+                
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="subcontenido">
+                      Sub-Contenido
+                    </label>
+                        <%= select_tag("sub_contenido_id", options_from_collection_for_select(SubContenido.all, :id, :nombre,  @draft.try(:sub_contenido_id)  ), :class => "form-control", :value => @draft.try(:sub_contenido_id) ) %>
                   </div>
                 </div>
               
@@ -187,6 +196,8 @@
               <input type="hidden" id="molde_id" name="molde_id" class="form-control" value="<%= @molde.id %>">
               <input type="hidden" id="creador_id" name="creador_id" class="form-control" value="<%= current_creador.id %>">
               <input type="hidden" id="ejercicio_id" name="ejercicio_id" class="form-control" value="<%= @ejercicio.id %>">
+              <input type="hidden" id="imagen_backup" name="imagen_backup" class="form-control" value="<%= @draft.imagen %>">
+              
               <button class="btn btn-block btn-success">
                 Previsualizar
               </button>
@@ -343,6 +354,7 @@
                 <form action="/edit_ejercicio_gemelo/<%= @ejercicio.id %>" method="post">
                   
                   <input type="hidden" id="contenido_id" name="contenido_id" class="form-control" value="<%= @draft.contenido_id %>">
+                  <input type="hidden" id="sub_contenido_id" name="sub_contenido_id" class="form-control" value="<%= @draft.sub_contenido_id %>">
                   <input type="hidden" id="enunciado" name="enunciado" class="form-control" value="<%= @draft.enunciado %>">
                   <input type="hidden" id="last_pre_ex_id" name="last_pre_ex_id" class="form-control" value="<%= @draft.id %>">
                   
@@ -380,6 +392,7 @@
                 <form action="/edit_ejercicio/<%= @ejercicio.id %>" method="post">
                   
                   <input type="hidden" id="contenido_id" name="contenido_id" class="form-control" value="<%= @draft.contenido_id %>">
+                  <input type="hidden" id="sub_contenido_id" name="sub_contenido_id" class="form-control" value="<%= @draft.sub_contenido_id %>">
                   <input type="hidden" id="enunciado" name="enunciado" class="form-control" value="<%= @draft.enunciado %>">
                   <input type="hidden" id="last_pre_ex_id" name="last_pre_ex_id" class="form-control" value="<%= @draft.id %>">
                   

@@ -38,7 +38,24 @@
                 </th>
             
               </tr>
+              
+              <!--- Pendientes de clasificar con contenido --->
+              <tr>
+                <td>
+                   Pendiente de Re-Clasificación (Conts antiguos)
+                </td>
             
+                <td>
+                    <% aux = 0 %>
+                    <% Contentido.where(:final => nil).each do |cont|%>
+                      <% aux = aux + cont.ejercicios.count %>
+                    <% end %>
+                    <%= aux %>
+                </td>
+            
+              </tr>
+              
+              
               <% @contentidos.each do |cont| %>
               <tr>
                 <td>

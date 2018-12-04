@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Sub contenido resource:
+
+  # CREATE
+  get("/sub_contenidos/new", { :controller => "sub_contenidos", :action => "new_form" })
+  post("/create_sub_contenido", { :controller => "sub_contenidos", :action => "create_row" })
+
+  # READ
+  get("/sub_contenidos", { :controller => "sub_contenidos", :action => "index" })
+  get("/sub_contenidos/:id_to_display", { :controller => "sub_contenidos", :action => "show" })
+
+  # UPDATE
+  get("/sub_contenidos/:prefill_with_id/edit", { :controller => "sub_contenidos", :action => "edit_form" })
+  post("/update_sub_contenido/:id_to_modify", { :controller => "sub_contenidos", :action => "update_row" })
+
+  # DELETE
+  get("/delete_sub_contenido/:id_to_remove", { :controller => "sub_contenidos", :action => "destroy_row" })
+
+  #------------------------------
+
   get 'uploads/new'
 
   get 'uploads/create'

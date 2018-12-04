@@ -1,6 +1,6 @@
 class ContentidosController < ApplicationController
   def index_porcontenido
-    @contentidos = Contentido.all
+    @contentidos = Contentido.where(:final => 1)
     @ejercicios= Ejercicio.all
 
     render("contentido_templates/porcontenidos.html.erb")

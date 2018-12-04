@@ -70,6 +70,7 @@ class EjerciciosController < ApplicationController
 
     @ejercicio.aprobado = false
     @ejercicio.contenido_id = params.fetch("contenido_id")
+    @ejercicio.sub_contenido_id = params.fetch("sub_contenido_id")
     @ejercicio.bandera = false
     @ejercicio.molde_id = params.fetch("molde_id")
     @ejercicio.enunciado = params.fetch("enunciado")
@@ -107,6 +108,7 @@ class EjerciciosController < ApplicationController
 
     @ejercicio.aprobado = false
     @ejercicio.contenido_id = params.fetch("contenido_id")
+    @ejercicio.sub_contenido_id = params.fetch("sub_contenido_id")
     @ejercicio.bandera = false
     @ejercicio.molde_id = params.fetch("molde_id")
     @ejercicio.enunciado = params.fetch("enunciado")
@@ -174,6 +176,7 @@ class EjerciciosController < ApplicationController
 
     @ejercicio.aprobado = false
     @ejercicio.contenido_id = params.fetch("contenido_id")
+    @ejercicio.sub_contenido_id = params.fetch("sub_contenido_id")
     @ejercicio.bandera = false
     @ejercicio.molde_id = params.fetch("molde_id")
     @ejercicio.enunciado = params.fetch("enunciado")
@@ -211,6 +214,7 @@ class EjerciciosController < ApplicationController
 
     @ejercicio.aprobado = false
     @ejercicio.contenido_id = params.fetch("contenido_id")
+    @ejercicio.sub_contenido_id = params.fetch("sub_contenido_id")
     @ejercicio.bandera = false
     @ejercicio.molde_id = params.fetch("molde_id")
     @ejercicio.enunciado = params.fetch("enunciado")

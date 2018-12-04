@@ -7,6 +7,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  nombre     :text
+#  final      :integer
 #
 
 class Contentido < ApplicationRecord

@@ -120,7 +120,19 @@
                     <p> <%= @ej.molde_id %> (<%= Ejercicio.where(:aprobado => true).where(:molde_id => @ej.molde_id).count %>) </p>
                     
                     <h6> Contenido </h6>
-                    <p> <%= Contentido.find(@ej.contenido_id).nombre %> </p>
+                    <p> 
+                      <% if Contentido.find(@ej.contenido_id).final != 1 %>
+                        //// NO ACTUALIZADO //// -> Antiguo: <%= Contentido.find(@ej.contenido_id).nombre %> 
+                      <% else %>
+                        <%= Contentido.find(@ej.contenido_id).nombre %> 
+                      <% end %>
+                    </p>
+                    
+                    <% if @ej.sub_contenido_id == nil  %>
+                        //// NO ACTUALIZADO ////
+                      <% else %>
+                        <%= SubContenido.find(@ej.sub_contenido_id).nombre %> 
+                      <% end %>
                     
                     <h6> Dificultad </h6>
                     <p> <%= @ej.dificultad %> </p>

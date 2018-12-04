@@ -1,0 +1,31 @@
+﻿NOM_E,CONTENIDO_ID,CONTENIDO,EJE_ID
+,40, ,1
+Números,41,Números racionales,2
+Números,42,Números reales,2
+Números,43,Números complejos,2
+Números,44,Potencias,2
+Números,45,Raíces,2
+Números,46,Logaritmos,2
+Álgebra,47,Expresiones algebraicas,3
+Álgebra,48,Ecuaciones de primer grado,3
+Álgebra,49,Ecuaciones de segundo grado,3
+Álgebra,50,Función lineal y afín,3
+Álgebra,51,Función cuadrática,3
+Álgebra,52,"Función exponencial, logarítmica y raíz",3
+Álgebra,53,Inecuaciones y sistemas de inecuaciones,3
+Álgebra,54,Sistemas de ecuaciones,3
+Álgebra,55,Fracciones algebraicas,3
+Geometría,56,Conceptos básicos,4
+Geometría,57,Círculo y circunferencia,4
+Geometría,58,Cuerpos geométricos,4
+Geometría,59,"Puntos, planos y vectores",4
+Geometría,60,Semejanza y congruencia,4
+Geometría,61,Transformaciones isométricas,4
+Geometría,62,Ecuación de la recta,4
+Datos y azar,63,Organización y representación de datos,5
+Datos y azar,64,"Medidas de tendencia central, posición y dispersión",5
+Datos y azar,65,Muestreo aleatorio,5
+Datos y azar,66,Distribución normal,5
+Datos y azar,67,Cálculo de probabilidades,5
+Datos y azar,68,Variable aleatoria discreta y continua,5
+Datos y azar,69,Distribución binomial,5

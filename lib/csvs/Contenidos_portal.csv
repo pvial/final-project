@@ -1,37 +1,109 @@
-﻿EJE,EJE_ID,CONTENIDO,# Ej,id
-NÚMEROS,2,Números racionales,60,3
-NÚMEROS,2,Números reales,60,4
-NÚMEROS,2,Números complejos,30,5
-NÚMEROS,2,Potencias,60,6
-NÚMEROS,2,Raíces,60,7
-NÚMEROS,2,Logaritmos,60,8
-ÁLGEBRA,3,Expresiones algebraicas,30,9
-ÁLGEBRA,3,Ecuaciones de primer grado,30,10
-ÁLGEBRA,3,Ecuaciones de segundo grado,40,11
-ÁLGEBRA,3,Función lineal y afín,30,12
-ÁLGEBRA,3,Función cuadrática,50,13
-ÁLGEBRA,3,"Función exponencial, logarítmica y raíz",60,14
-ÁLGEBRA,3,Inecuaciones y sistemas de inecuaciones,50,15
-ÁLGEBRA,3,Sistemas de ecuaciones,40,16
-ÁLGEBRA,3,Fracciones algebraicas,30,17
-GEOMETRÍA,4,Círculo y circunferencia,30,18
-GEOMETRÍA,4,Cuerpos geométricos,30,19
-GEOMETRÍA,4,Geometría proporcional,60,20
-GEOMETRÍA,4,"Puntos, planos y vectores",40,21
-GEOMETRÍA,4,Semejanza,30,22
-GEOMETRÍA,4,Congruencia,20,23
-GEOMETRÍA,4,Transformaciones isométricas,30,24
-GEOMETRÍA,4,Ecuación de la recta,60,25
-GEOMETRÍA,4,Homotecia,30,26
-DATOS Y AZAR,5,Datos agrupados en intervalos,30,27
-DATOS Y AZAR,5,Medidas de dispersión,20,28
-DATOS Y AZAR,5,Análisis de dos conjuntos de datos,20,29
-DATOS Y AZAR,5,Muestreo aleatorio,20,30
-DATOS Y AZAR,5,Estadística inferencial,20,31
-DATOS Y AZAR,5,Técnicas de conteo,30,32
-DATOS Y AZAR,5,Probabilidad frecuencial y teórica,60,33
-DATOS Y AZAR,5,Suma y producto de probabilidades,30,34
-DATOS Y AZAR,5,Probabilidad condicional,20,35
-DATOS Y AZAR,5,Variable aleatoria discreta,30,36
-DATOS Y AZAR,5,Variable aleatoria continua,20,37
-DATOS Y AZAR,5,Distribución normal y binomial,20,38
+﻿EJE_ID,NOM_E,CONTENIDO_ID,CONTENIDO,ID_S,SUBCONTENIDO
+1,,40, ,1, 
+2,Números,41,Números racionales,2,Suma y resta de números racionales
+2,Números,41,Números racionales,3,Multiplicación y división de números racionales
+2,Números,41,Números racionales,4,Representación de números racionales en la recta numérica
+2,Números,41,Números racionales,5,Transformación de fracción a decimal
+2,Números,41,Números racionales,6,Transformación de decimal a fracción
+2,Números,41,Números racionales,7,Aproximación de racionales
+2,Números,41,Números racionales,8,Orden de números racionales
+2,Números,42,Números reales,9,Identificar números racionales e irracionales
+2,Números,42,Números reales,10,Ubicación de números reales en la recta numérica
+2,Números,42,Números reales,11,Aproximación de números reales
+2,Números,42,Números reales,12,Orden de números reales
+2,Números,43,Números complejos,13,Introducción y propiedades
+2,Números,43,Números complejos,14,Potencias de i
+2,Números,43,Números complejos,15,Suma y resta de números complejos
+2,Números,43,Números complejos,16,Multiplicación de números complejos
+2,Números,43,Números complejos,17,División de números complejos
+2,Números,44,Potencias,18,Propiedades de las potencias
+2,Números,44,Potencias,19,Operatoria de potencias
+2,Números,45,Raíces,20,Propiedades de las raíces
+2,Números,45,Raíces,21,Operatoria de raices
+2,Números,46,Logaritmos,22,Propiedades de las logaritmos
+2,Números,46,Logaritmos,23,Operatoria de logaritmos
+3,Álgebra,47,Expresiones algebraicas,24,Valorización y reducción de expresiones
+3,Álgebra,47,Expresiones algebraicas,25,Factorización
+3,Álgebra,47,Expresiones algebraicas,26,Productos notables
+3,Álgebra,48,Ecuaciones de primer grado,27,Ecuaciones con coeficientes enteros
+3,Álgebra,48,Ecuaciones de primer grado,28,Ecuaciones con coeficientes racionales
+3,Álgebra,48,Ecuaciones de primer grado,29,Ecuaciones con coeficientes literales
+3,Álgebra,48,Ecuaciones de primer grado,30,Problemas con ecuaciones de primer grado
+3,Álgebra,49,Ecuaciones de segundo grado,31,Resolución de ecuaciones de segundo grado
+3,Álgebra,49,Ecuaciones de segundo grado,32,Análisis de soluciones
+3,Álgebra,50,Función lineal y afín,33,"Dominio, recorrido y tipos de funciones"
+3,Álgebra,50,Función lineal y afín,34,Función afín
+3,Álgebra,50,Función lineal y afín,35,Función lineal
+3,Álgebra,50,Función lineal y afín,36,Composición de funciones
+3,Álgebra,50,Función lineal y afín,37,Problemas de funciones afin y lineal
+3,Álgebra,51,Función cuadrática,38,Intersección de la gráfica con los ejes coordenados
+3,Álgebra,51,Función cuadrática,39,Vértice y eje de simetría
+3,Álgebra,51,Función cuadrática,40,Análisis gráfico y discriminante
+3,Álgebra,51,Función cuadrática,41,Modelamiento de situaciones cotidianas
+3,Álgebra,52,"Función exponencial, logarítmica y raíz",42,Función exponencial
+3,Álgebra,52,"Función exponencial, logarítmica y raíz",43,Función logarítmica
+3,Álgebra,52,"Función exponencial, logarítmica y raíz",44,Función raíz
+3,Álgebra,52,"Función exponencial, logarítmica y raíz",45,Composición de funciones
+3,Álgebra,52,"Función exponencial, logarítmica y raíz",46,Biyectividad y función inversa
+3,Álgebra,53,Inecuaciones y sistemas de inecuaciones,47,Desigualdades e intervalos
+3,Álgebra,53,Inecuaciones y sistemas de inecuaciones,48,Inecuaciones de primer grado
+3,Álgebra,53,Inecuaciones y sistemas de inecuaciones,49,Sistemas de inecuaciones de primer grado
+3,Álgebra,54,Sistemas de ecuaciones,50,Resolución de sistemas de ecuaciones
+3,Álgebra,54,Sistemas de ecuaciones,51,Existencia y pertinencia de soluciones
+3,Álgebra,54,Sistemas de ecuaciones,52,Análisis gráfico
+3,Álgebra,55,Fracciones algebraicas,53,Amplificación y simplificación
+3,Álgebra,55,Fracciones algebraicas,54,Suma y resta
+3,Álgebra,55,Fracciones algebraicas,55,Multiplicación y división
+4,Geometría,56,Conceptos básicos,56,Ángulos complementarios y suplementarios
+4,Geometría,56,Conceptos básicos,57,Elementos secundarios del triángulos
+4,Geometría,56,Conceptos básicos,58,Teorema de pitágoras
+4,Geometría,56,Conceptos básicos,59,Cuadriláteros
+4,Geometría,57,Círculo y circunferencia,60,Ángulos y arcos en la circunferencia
+4,Geometría,57,Círculo y circunferencia,61,"Teoremas de cuerdas, secantes y tangentes."
+4,Geometría,58,Cuerpos geométricos,62,Área de cuerpos geometricos
+4,Geometría,58,Cuerpos geométricos,63,Volúmen de cuerpos geométricos
+4,Geometría,59,"Puntos, planos y vectores",64,Figuras geométricas en el plano
+4,Geometría,59,"Puntos, planos y vectores",65,Distancia entre dos puntos y punto medio
+4,Geometría,59,"Puntos, planos y vectores",66,"Vectores, operatoria y módulo"
+4,Geometría,59,"Puntos, planos y vectores",67,Ecuación vectorial de la recta en 2D
+4,Geometría,59,"Puntos, planos y vectores",68,Ecuación vectorial de la recta en 3D
+4,Geometría,59,"Puntos, planos y vectores",69,Ecuación vectorial del plano en 3D
+4,Geometría,60,Semejanza y congruencia,70,Congruencia de figuras
+4,Geometría,60,Semejanza y congruencia,71,Semejanza de figuras
+4,Geometría,60,Semejanza y congruencia,72,Teorema de Thales
+4,Geometría,60,Semejanza y congruencia,73,División de segmentos
+4,Geometría,60,Semejanza y congruencia,74,Teorema de Euclides
+4,Geometría,60,Semejanza y congruencia,75,Homotecia de figuras planas
+4,Geometría,61,Transformaciones isométricas,76,Traslación
+4,Geometría,61,Transformaciones isométricas,77,Reflexión
+4,Geometría,61,Transformaciones isométricas,78,Rotación
+4,Geometría,61,Transformaciones isométricas,79,Composición de transformaciones
+4,Geometría,62,Ecuación de la recta,80,Pendiente de una recta
+4,Geometría,62,Ecuación de la recta,81,Ecuación punto-punto y punto-pendiente
+4,Geometría,62,Ecuación de la recta,82,Ecuación principal y general de la recta
+4,Geometría,62,Ecuación de la recta,83,Rectas paralelas y perpendiculares
+5,Datos y azar,63,Organización y representación de datos,84,Tablas de frecuencia
+5,Datos y azar,63,Organización y representación de datos,85,Histogramas
+5,Datos y azar,63,Organización y representación de datos,86,Polígonos de frecuencia
+5,Datos y azar,64,"Medidas de tendencia central, posición y dispersión",87,Medidas de tendencia central con datos no agrupados
+5,Datos y azar,64,"Medidas de tendencia central, posición y dispersión",88,Medidas de tendencia central con datos agrupados
+5,Datos y azar,64,"Medidas de tendencia central, posición y dispersión",89,Medidas de posición
+5,Datos y azar,64,"Medidas de tendencia central, posición y dispersión",90,"Rango, varianza y desviación estándar"
+5,Datos y azar,64,"Medidas de tendencia central, posición y dispersión",91,Análisis de dos conjuntos de datos
+5,Datos y azar,65,Muestreo aleatorio,92,Número de muestras
+5,Datos y azar,65,Muestreo aleatorio,93,Análisis de muestras
+5,Datos y azar,66,Distribución normal,94,Distribución normal estándar
+5,Datos y azar,66,Distribución normal,95,Distribución normal no estándar
+5,Datos y azar,66,Distribución normal,96,Intervalos de confianza
+5,Datos y azar,66,Distribución normal,97,Propiedades y análisis gráfico
+5,Datos y azar,67,Cálculo de probabilidades,98,Técnicas de conteo
+5,Datos y azar,67,Cálculo de probabilidades,99,Regla de LaPlace
+5,Datos y azar,67,Cálculo de probabilidades,100,Suma y producto de probabilidades
+5,Datos y azar,67,Cálculo de probabilidades,101,Probabilidad condicional
+5,Datos y azar,67,Cálculo de probabilidades,102,Ley de los grandes números
+5,Datos y azar,68,Variable aleatoria discreta y continua,103,Función de probabilidad y de distribución
+5,Datos y azar,68,Variable aleatoria discreta y continua,104,Valor esperado
+5,Datos y azar,68,Variable aleatoria discreta y continua,105,Distribución binomial
+5,Datos y azar,68,Variable aleatoria discreta y continua,106,Función de densidad
+5,Datos y azar,69,Distribución binomial,107,Probabilidad binomial
+5,Datos y azar,69,Distribución binomial,108,Aproximación de la probabilidad binomial por la probabilidad de la normal.

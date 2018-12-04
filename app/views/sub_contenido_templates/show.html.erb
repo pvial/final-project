@@ -1,0 +1,49 @@
+<h1>
+  Sub contenido #<%= @sub_contenido.id %> details
+</h1>
+
+<a href="/sub_contenidos/<%= @sub_contenido.id %>/edit">
+  Edit sub contenido
+</a>
+
+<hr>
+
+<dl>
+  <dt>
+    Contenido
+  </dt>
+  <dd>
+    <%= @sub_contenido.contenido_id %>
+  </dd>
+
+  <dt>
+    Nombre
+  </dt>
+  <dd>
+    <%= @sub_contenido.nombre %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@sub_contenido.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@sub_contenido.updated_at) %> ago
+  </dd>
+</dl>
+
+<a href="/delete_sub_contenido/<%= @sub_contenido.id %>">
+  Delete sub contenido
+</a>
+
+<hr>
+
+<a href="/sub_contenidos">
+  Go back
+</a>

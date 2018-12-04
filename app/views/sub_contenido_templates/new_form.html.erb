@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @sub_contenido.present? %>
+  <% if @sub_contenido.errors.any? %>
+    <% @sub_contenido.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1>
+  Add a new sub contenido
+</h1>
+
+<hr>
+
+<form action="/create_sub_contenido" method="post">
+  <!-- Label and input for contenido_id -->
+  <div class="form-group">
+    <label for="contenido_id">
+      Contenido
+    </label>
+
+    <input type="text" id="contenido_id" name="contenido_id" class="form-control" value="<%= @sub_contenido.try(:contenido_id) %>">
+  </div>
+
+  <!-- Label and input for nombre -->
+  <div class="form-group">
+    <label for="nombre">
+      Nombre
+    </label>
+
+    <textarea id="nombre" name="nombre" class="form-control" rows="3"><%= @sub_contenido.try(:nombre) %></textarea>
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create sub contenido
+  </button>
+</form>
+
+<hr>
+
+<a href="/sub_contenidos">
+  Go back
+</a>

@@ -1,0 +1,66 @@
+<h1>
+  All sub contenidos
+</h1>
+
+<a href="/sub_contenidos/new">
+  Add a new sub contenido
+</a>
+
+<hr>
+
+<table class="table">
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Contenido
+    </th>
+
+    <th>
+      Nombre
+    </th>
+
+    <th>
+      Created at
+    </th>
+
+    <th>
+      Updated at
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @sub_contenidos.each do |sub_contenido| %>
+  <tr>
+    <td>
+      <%= sub_contenido.id %>
+    </td>
+
+    <td>
+      <%= sub_contenido.contenido_id %>
+    </td>
+
+    <td>
+      <%= sub_contenido.nombre %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(sub_contenido.created_at) %> ago
+    </td>
+
+    <td>
+      <%= time_ago_in_words(sub_contenido.updated_at) %> ago
+    </td>
+
+    <td>
+      <a href="/sub_contenidos/<%= sub_contenido.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

@@ -31,11 +31,14 @@ class PreExesController < ApplicationController
     @pre_ex = PreEx.new
 
     @pre_ex.contenido_id = params.fetch("contenido_id")
+    @pre_ex.sub_contenido_id = params.fetch("sub_contenido_id")
     @pre_ex.molde_id = params.fetch("molde_id")
     @pre_ex.enunciado = params.fetch("enunciado")
     
     if params.fetch("subi_imagen") == "on"
       @pre_ex.imagen = Upload.last.url
+    else
+      @pre_ex.imagen = params.fetch("imagen_backup")
     end 
     
     @pre_ex.resp_correcta = params.fetch("resp_correcta")
@@ -69,13 +72,16 @@ class PreExesController < ApplicationController
     @pre_ex = PreEx.new
 
     @pre_ex.contenido_id = params.fetch("contenido_id")
+    @pre_ex.sub_contenido_id = params.fetch("sub_contenido_id")
     @pre_ex.molde_id = params.fetch("molde_id")
     @pre_ex.enunciado = params.fetch("enunciado")
     
     if params.fetch("subi_imagen") == "on"
       @pre_ex.imagen = Upload.last.url
-    end
-    
+    else
+      @pre_ex.imagen = params.fetch("imagen_backup")
+    end 
+
     @pre_ex.resp_correcta = params.fetch("resp_correcta")
     @pre_ex.w1 = params.fetch("w1")
     @pre_ex.w2 = params.fetch("w2")
@@ -114,12 +120,15 @@ class PreExesController < ApplicationController
     @pre_ex = PreEx.find(params.fetch("id_to_modify"))
 
     @pre_ex.contenido_id = params.fetch("contenido_id")
+    @pre_ex.sub_contenido_id = params.fetch("sub_contenido_id")
     @pre_ex.molde_id = params.fetch("molde_id")
     @pre_ex.enunciado = params.fetch("enunciado")
     
     if params.fetch("subi_imagen") == "on"
       @pre_ex.imagen = Upload.last.url
-    end
+    else
+      @pre_ex.imagen = params.fetch("imagen_backup")
+    end 
     
     @pre_ex.resp_correcta = params.fetch("resp_correcta")
     @pre_ex.w1 = params.fetch("w1")
