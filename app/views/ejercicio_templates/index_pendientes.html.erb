@@ -26,6 +26,10 @@
                 <th>
                   Contenido
                 </th>
+                
+                <th>
+                  Sub-Contenido
+                </th>
             
                 <th>
                   Creador
@@ -55,7 +59,20 @@
                 </td>
             
                 <td>
-                  <%= Contentido.find(ejercicio.contenido_id).nombre %>
+                  <% if Contentido.find(ejercicio.contenido_id).final !=1 %>
+                    ///PENDIENTE/// <%= Contentido.find(ejercicio.contenido_id).nombre %>
+                  <% else %>
+                    <%= Contentido.find(ejercicio.contenido_id).nombre %>
+                  <% end %>
+                  
+                </td>
+                
+                <td>
+                  <% if ejercicio.sub_contenido_id == nil %>
+                    /// PENDIENTE ///
+                  <% else %>
+                    <%= SubContenido.find(ejercicio.sub_contenido_id).nombre %>
+                  <% end %>
                 </td>
             
                 <td>
