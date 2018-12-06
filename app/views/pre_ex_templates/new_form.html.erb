@@ -31,6 +31,10 @@
             
             <hr> 
             
+            
+              
+            
+            
             <form action="/create_pre_ex" method="post">
               
               <!-- Label and input for contenido_id -->
@@ -42,6 +46,7 @@
                       Contenido
                     </label>
                         <%= select_tag("contenido_id", options_from_collection_for_select(Contentido.where(:final => 1), :id, :nombre,  @draft.try(:contenido_id)), :class => "form-control", :value => @draft.try(:contenido_id) ) %>
+                        
                   </div>
                 </div>
                 
@@ -50,7 +55,8 @@
                     <label for="subcontenido">
                       Sub-Contenido
                     </label>
-                        <%= select_tag("sub_contenido_id", options_from_collection_for_select(SubContenido.all, :id, :nombre,  @draft.try(:sub_contenido_id)  ), :class => "form-control", :value => @draft.try(:sub_contenido_id) ) %>
+                        <%= select_tag("sub_contenido_id",  option_groups_from_collection_for_select(Contentido.where(:final => 1),:sub_contenidos, :nombre, :id, :nombre,  @draft.try(:sub_contenido_id)  ), :class => "form-control", :value => @draft.try(:sub_contenido_id) ) %>
+                        
                   </div>
                 </div>
               

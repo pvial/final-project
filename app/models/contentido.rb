@@ -13,5 +13,6 @@
 class Contentido < ApplicationRecord
     has_many :drafts, :class_name => "PreEx", :foreign_key => "contenido_id"
     has_many :ejercicios, :foreign_key => "contenido_id"
+    has_many :sub_contenidos, :foreign_key => "contenido_id"
     belongs_to :eje
 end
