@@ -45,8 +45,9 @@
                     <label for="subcontenido">
                       Sub-Contenido
                     </label>
-                        <%= select_tag("sub_contenido_id", options_from_collection_for_select(SubContenido.all, :id, :nombre,  @draft.try(:sub_contenido_id)  ), :class => "form-control", :value => @draft.try(:sub_contenido_id) ) %>
-                  </div>
+                        
+                        <%= select_tag("sub_contenido_id",  option_groups_from_collection_for_select(Contentido.where(:final => 1),:sub_contenidos, :nombre, :id, :nombre,  @draft.try(:sub_contenido_id)  ), :class => "form-control", :value => @draft.try(:sub_contenido_id) ) %>
+                    </div>
                 </div>
               
                 <!-- Label and input for habilidad -->
