@@ -66,7 +66,7 @@
                     <label for="habilidad">
                       Habilidad
                     </label>
-                    <%= select_tag("habilidad", options_for_select([ "","Identificar", "Interpretar", "Analizar"], @draft.try(:habilidad)), :class => "form-control", :value => @draft.try(:habilidad) ) %>
+                    <%= select_tag("habilidad", options_for_select([ "","Comprender", "Aplicar", "Analizar"], @draft.try(:habilidad)), :class => "form-control", :value => @draft.try(:habilidad) ) %>
                   </div>
                 </div>
                 
