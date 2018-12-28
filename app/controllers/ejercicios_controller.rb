@@ -31,20 +31,32 @@ class EjerciciosController < ApplicationController
   end
   
   def index_aprobados
-    @ejercicios = Ejercicio.all.where(:aprobado => true)
+    if current_creador != nil 
+      @ejercicios = Ejercicio.all.where(:aprobado => true).where(:creador_id => current_creador.id)
+    else
+      @ejercicios = Ejercicio.all.where(:aprobado => true)
+    end
 
     render("ejercicio_templates/index_aprobados.html.erb")
   end
   
   def index_rechazados
-    @ejercicios = Ejercicio.all.where(:aprobado => false).where(:bandera => true)
+    if current_creador != nil 
+      @ejercicios = Ejercicio.all.where(:aprobado => false).where(:bandera => true).where(:creador_id => current_creador.id)
+    else
+      @ejercicios = Ejercicio.all.where(:aprobado => false).where(:bandera => true)
+    end
 
     render("ejercicio_templates/index_rechazados.html.erb")
   end
   
   def index_pendientes
-    @ejercicios = Ejercicio.all.where(:aprobado => false).where(:bandera => false)
-
+    if current_creador != nil 
+      @ejercicios = Ejercicio.all.where(:aprobado => false).where(:bandera => false).where(:creador_id => current_creador.id)
+    else
+      @ejercicios = Ejercicio.all.where(:aprobado => false).where(:bandera => false)
+    end
+    
     render("ejercicio_templates/index_pendientes.html.erb")
   end
   
@@ -96,7 +108,7 @@ class EjerciciosController < ApplicationController
     if @ejercicio.valid?
       @ejercicio.save
 
-      redirect_to("/", :notice => "Ejercicio created successfully.")
+      redirect_to("/", :notice => "Ejercicio #{@ejercicio.id} created successfully.")
     else
       render("ejercicio_templates/new_form.html.erb")
     end
@@ -136,9 +148,11 @@ class EjerciciosController < ApplicationController
 
     if @ejercicio.valid?
       @ejercicio.save
-
-      render("pre_ex_templates/new_form.html.erb", :notice => "Ejercicio created successfully.")
+      
+      flash.now[:notice] = "Ejercicio #{@ejercicio.id} created successfully."
+      render("pre_ex_templates/new_form.html.erb")
     else
+      flash.now[:notice] = "Ejercicio no fue creado."
       render("ejercicio_templates/new_form.html.erb")
     end
   end
@@ -165,7 +179,7 @@ class EjerciciosController < ApplicationController
     if @ejercicio.valid?
       @ejercicio.save
 
-      redirect_to("/ejercicios/#{@ejercicio.id}", :notice => "Ejercicio updated successfully.")
+      redirect_to("/ejercicios/#{@ejercicio.id}", :notice => "Ejercicio #{@ejercicio.id} updated successfully.")
     else
       render("ejercicio_templates/land.html.erb")
     end
@@ -195,14 +209,14 @@ class EjerciciosController < ApplicationController
     @ejercicio.dificultad = params.fetch("dificultad")
     @ejercicio.habilidad = params.fetch("habilidad")
     @ejercicio.last_pre_ex_id = params.fetch("last_pre_ex_id")
-    @ejercicio.creador_id = current_creador.id
+    ## @ejercicio.creador_id = current_creador.id
     @ejercicio.solucion = params.fetch("solucion")
     @ejercicio.imagen = params.fetch("imagen")
 
     if @ejercicio.valid?
       @ejercicio.save
 
-      redirect_to("/ejercicios/#{@ejercicio.id}", :notice => "Ejercicio edited successfully.")
+      redirect_to("/ejercicios/#{@ejercicio.id}", :notice => "Ejercicio #{@ejercicio.id} edited successfully.")
     else
       render("ejercicio_templates/new_form.html.erb")
     end
@@ -233,7 +247,7 @@ class EjerciciosController < ApplicationController
     @ejercicio.dificultad = params.fetch("dificultad")
     @ejercicio.habilidad = params.fetch("habilidad")
     @ejercicio.last_pre_ex_id = params.fetch("last_pre_ex_id")
-    @ejercicio.creador_id = current_creador.id
+    ## @ejercicio.creador_id = current_creador.id
     @ejercicio.solucion = params.fetch("solucion")
     @ejercicio.imagen = params.fetch("imagen")
     
@@ -242,8 +256,8 @@ class EjerciciosController < ApplicationController
 
     if @ejercicio.valid?
       @ejercicio.save
-
-      render("pre_ex_templates/new_form.html.erb", :notice => "Ejercicio edited successfully. Procceda a generar un gemelo")
+      flash.now[:notice] = "Ejercicio #{@ejercicio.id} edited successfully. Proceda a generar un gemelo"
+      render("pre_ex_templates/new_form.html.erb")
     else
       render("ejercicio_templates/new_form.html.erb")
     end

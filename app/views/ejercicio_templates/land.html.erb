@@ -172,7 +172,7 @@
                       
                       <!-- Contador de rechazados -->
                     
-                    <h2> <%= @ejercicios.where(:aprobado => false).where(:bandera => true).count %></h2>
+                    <h2> <%= @ejercicios.where(:creador_id => current_creador.id).where(:aprobado => false).where(:bandera => true).count %></h2>
                       
                       <td>
                         <button class="btn btn-warning btn-block">

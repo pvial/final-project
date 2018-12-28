@@ -34,7 +34,7 @@
                 </th>
             
                 <th>
-                  # ejercicios (Identificar / Interpretar / Analizar )
+                  # ejercicios (Comprender / Aplicar / Analizar )
                 </th>
             
               </tr>
@@ -50,8 +50,8 @@
                 </td>
                 
                 <td>
-                    <% iden = @ejercicios.where(:dificultad => dif).where(:habilidad => "Identificar").count %>
-                    <% inter = @ejercicios.where(:dificultad => dif).where(:habilidad => "Interpretar").count %>
+                    <% iden = @ejercicios.where(:dificultad => dif).where(:habilidad => "Comprender").count %>
+                    <% inter = @ejercicios.where(:dificultad => dif).where(:habilidad => "Aplicar").count %>
                     <% analizar = @ejercicios.where(:dificultad => dif).where(:habilidad => "Analizar").count %>
                     
                     
