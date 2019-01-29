@@ -1,66 +1,104 @@
-<h1>
-  All sub contenidos
-</h1>
+<div class="container">
+    <div style="height: 50px;"></div>
+            
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card border-secondary mb-3" style="min-height: 500px;">
+          <h6 class="card-header text-white bg-secondary mb-3">  Ejercicios por Sub_Contenido </h6>
+          
+          <div class="card-body" align="left">
+            
+            <!--- Botones para cambiar de visor --->
+            <div class = "row">
+              <div> 
+                <a href="/contentidos/porcontenido" class="btn btn-primary btn-block" align="bottom">  Ver por Contenido </a>
+              </div>
+              
+              <div> 
+                <a href="/sub_contenidos" class="btn btn-danger btn-block" align="bottom">  Ver por Sub_Contenido </a>
+              </div>
 
-<a href="/sub_contenidos/new">
-  Add a new sub contenido
-</a>
+              <div> 
+                <a href="/contentidos/pordificultad" class="btn btn-primary btn-block" align="bottom">  Ver por Dificultad </a>
+              </div>
 
-<hr>
+              <div> 
+                <a href="/contentidos/pormolde" class="btn btn-primary btn-block" align="bottom">  Ver por Molde </a>
+              </div>
+              
+            </div>
+            <hr>
+            
+            <!--- Botones para reordenar --->
+            <div class = "row">
+              <div> 
+                <a href="/sub_contenidos" class="btn btn-secondary btn-block" align="bottom">  ...por orden Académico </a>
+              </div>
+              <div> 
+                <a href="/sub_contenidos/portotal" class="btn btn-secondary btn-block" align="bottom">  Ordenar por total de ejercicios </a>
+              </div>
+            </div> 
+            <div style="height: 10px;"></div>
+            <div class = "row">  
+              <div> 
+                <a href="/sub_contenidos/pormuyfacil" class="btn btn-warning btn-block" align="bottom">  Ordenar por #Muy Fácil </a>
+              </div>
+              <div> 
+                <a href="/sub_contenidos/porfacil" class="btn btn-warning btn-block" align="bottom">  Ordenar por #Fácil </a>
+              </div>
+              <div> 
+                <a href="/sub_contenidos/pormedio" class="btn btn-warning btn-block" align="bottom">  Ordenar por #Media </a>
+              </div>
+              <div> 
+                <a href="/sub_contenidos/pordificil" class="btn btn-warning btn-block" align="bottom">  Ordenar por #Difícil </a>
+              </div>
+              <div> 
+                <a href="/sub_contenidos/pormuydificil" class="btn btn-warning btn-block" align="bottom">  Ordenar por #Muy Difícil </a>
+              </div>
+              
+            </div>
+            <hr>
+            
+            <!--- Mostrar content --->
+            <table class="table">
+              <tr>
+                <th>
+                  Sub_Contenido
+                </th>
+            
+                <th>
+                  # ejercicios (Muy Fácil / Fácil / Medio / Difícil / Muy Difícil )
+                </th>
+            
+              </tr>
+              
+              <!--- Pendientes de clasificar con contenido --->
+              </tr>
+              
+              
+              <% @sub_contenidos.each do |subcont| %>
+              <tr>
+                <td>
+                  <a href="/sub_contenidos/<%= subcont.id %>"> <%= subcont.nombre %> </a>
+                </td>
+            
+                <td>
+                    <% muyfac = @ejercicios.where(:sub_contenido_id => subcont.id).where(:dificultad => 1).count %>
+                    <% fac = @ejercicios.where(:sub_contenido_id => subcont.id).where(:dificultad => 2).count %>
+                    <% med = @ejercicios.where(:sub_contenido_id => subcont.id).where(:dificultad => 3).count %>
+                    <% dif = @ejercicios.where(:sub_contenido_id => subcont.id).where(:dificultad => 4).count %>
+                    <% muydif = @ejercicios.where(:sub_contenido_id => subcont.id).where(:dificultad => 5).count %>
+                    
+                  <%= @ejercicios.where(:sub_contenido_id => subcont.id).count %> (<%= muyfac %> / <%= fac %> / <%= med %> / <%= dif %> / <%= muydif %>)
+                </td>
+            
+              </tr>
+              <% end %>
+            </table>
 
-<table class="table">
-  <tr>
-    <th>
-      ID
-    </th>
 
-    <th>
-      Contenido
-    </th>
-
-    <th>
-      Nombre
-    </th>
-
-    <th>
-      Created at
-    </th>
-
-    <th>
-      Updated at
-    </th>
-
-    <th>
-    </th>
-  </tr>
-
-  <% @sub_contenidos.each do |sub_contenido| %>
-  <tr>
-    <td>
-      <%= sub_contenido.id %>
-    </td>
-
-    <td>
-      <%= sub_contenido.contenido_id %>
-    </td>
-
-    <td>
-      <%= sub_contenido.nombre %>
-    </td>
-
-    <td>
-      <%= time_ago_in_words(sub_contenido.created_at) %> ago
-    </td>
-
-    <td>
-      <%= time_ago_in_words(sub_contenido.updated_at) %> ago
-    </td>
-
-    <td>
-      <a href="/sub_contenidos/<%= sub_contenido.id %>">
-        Show details
-      </a>
-    </td>
-  </tr>
-  <% end %>
-</table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

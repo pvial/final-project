@@ -1,10 +1,55 @@
 class ContentidosController < ApplicationController
+  
   def index_porcontenido
     @contentidos = Contentido.where(:final => 1)
     @ejercicios= Ejercicio.all
 
     render("contentido_templates/porcontenidos.html.erb")
   end
+
+  def index_porcontenido_total
+    @contentidos = Contentido.where(:final => 1).sort_by{ |c| c.ejercicios.count }
+    @ejercicios= Ejercicio.all
+
+    render("contentido_templates/porcontenidos.html.erb")
+  end
+  
+  def index_porcontenido_muyfacil
+    @contentidos = Contentido.where(:final => 1).sort_by{ |c| c.ejercicios.where(:dificultad => 1).count }
+    @ejercicios= Ejercicio.all
+
+    render("contentido_templates/porcontenidos.html.erb")
+  end
+  
+  def index_porcontenido_facil
+    @contentidos = Contentido.where(:final => 1).sort_by{ |c| c.ejercicios.where(:dificultad => 2).count }
+    @ejercicios= Ejercicio.all
+
+    render("contentido_templates/porcontenidos.html.erb")
+  end
+  
+  def index_porcontenido_medio
+    @contentidos = Contentido.where(:final => 1).sort_by{ |c| c.ejercicios.where(:dificultad => 3).count }
+    @ejercicios= Ejercicio.all
+
+    render("contentido_templates/porcontenidos.html.erb")
+  end
+  
+  def index_porcontenido_dificil
+    @contentidos = Contentido.where(:final => 1).sort_by{ |c| c.ejercicios.where(:dificultad => 4).count }
+    @ejercicios= Ejercicio.all
+
+    render("contentido_templates/porcontenidos.html.erb")
+  end
+  
+  def index_porcontenido_muydificil
+    @contentidos = Contentido.where(:final => 1).sort_by{ |c| c.ejercicios.where(:dificultad => 5).count }
+    @ejercicios= Ejercicio.all
+
+    render("contentido_templates/porcontenidos.html.erb")
+  end
+  
+  
   
   def index_pormolde
     @moldes = Molde.all

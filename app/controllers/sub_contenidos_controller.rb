@@ -1,10 +1,46 @@
 class SubContenidosController < ApplicationController
   def index
     @sub_contenidos = SubContenido.all
-
+    @ejercicios = Ejercicio.all
     render("sub_contenido_templates/index.html.erb")
   end
-
+  
+  def index_total
+    @sub_contenidos = SubContenido.all.sort_by{ |c| c.ejercicios.count }
+    @ejercicios = Ejercicio.all
+    render("sub_contenido_templates/index.html.erb")
+  end
+  
+  def index_muyfacil
+    @sub_contenidos = SubContenido.all.sort_by{ |c| c.ejercicios.where(:dificultad => 1).count }
+    @ejercicios = Ejercicio.all
+    render("sub_contenido_templates/index.html.erb")
+  end
+  
+  def index_facil
+    @sub_contenidos = SubContenido.all.sort_by{ |c| c.ejercicios.where(:dificultad => 2).count }
+    @ejercicios = Ejercicio.all
+    render("sub_contenido_templates/index.html.erb")
+  end
+  
+  def index_medio
+    @sub_contenidos = SubContenido.all.sort_by{ |c| c.ejercicios.where(:dificultad => 3).count }
+    @ejercicios = Ejercicio.all
+    render("sub_contenido_templates/index.html.erb")
+  end
+  
+  def index_dificil
+    @sub_contenidos = SubContenido.all.sort_by{ |c| c.ejercicios.where(:dificultad => 4).count }
+    @ejercicios = Ejercicio.all
+    render("sub_contenido_templates/index.html.erb")
+  end
+  
+  def index_muydificil
+    @sub_contenidos = SubContenido.all.sort_by{ |c| c.ejercicios.where(:dificultad => 5).count }
+    @ejercicios = Ejercicio.all
+    render("sub_contenido_templates/index.html.erb")
+  end
+  
   def show
     @sub_contenido = SubContenido.find(params.fetch("id_to_display"))
 

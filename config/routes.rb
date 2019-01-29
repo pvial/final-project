@@ -7,6 +7,13 @@ Rails.application.routes.draw do
 
   # READ
   get("/sub_contenidos", { :controller => "sub_contenidos", :action => "index" })
+  get("/sub_contenidos/portotal", { :controller => "sub_contenidos", :action => "index_total" })
+  get("/sub_contenidos/pormuyfacil", { :controller => "sub_contenidos", :action => "index_muyfacil" })
+  get("/sub_contenidos/porfacil", { :controller => "sub_contenidos", :action => "index_facil" })
+  get("/sub_contenidos/pormedio", { :controller => "sub_contenidos", :action => "index_medio" })
+  get("/sub_contenidos/pordificil", { :controller => "sub_contenidos", :action => "index_dificil" })
+  get("/sub_contenidos/pormuydificil", { :controller => "sub_contenidos", :action => "index_muydificil" })
+  get("/sub_contenidos", { :controller => "sub_contenidos", :action => "index" })
   get("/sub_contenidos/:id_to_display", { :controller => "sub_contenidos", :action => "show" })
 
   # UPDATE
@@ -108,6 +115,12 @@ Rails.application.routes.draw do
   # READ
   get("/contentidos", { :controller => "contentidos", :action => "index" })
   get("/contentidos/porcontenido", { :controller => "contentidos", :action => "index_porcontenido" })
+  get("/contentidos/porcontenidototal", { :controller => "contentidos", :action => "index_porcontenido_total" })
+  get("/contentidos/porcontenidomuyfacil", { :controller => "contentidos", :action => "index_porcontenido_muyfacil" })
+  get("/contentidos/porcontenidofacil", { :controller => "contentidos", :action => "index_porcontenido_facil" })
+  get("/contentidos/porcontenidomedio", { :controller => "contentidos", :action => "index_porcontenido_medio" })
+  get("/contentidos/porcontenidodificil", { :controller => "contentidos", :action => "index_porcontenido_dificil" })
+  get("/contentidos/porcontenidomuydificil", { :controller => "contentidos", :action => "index_porcontenido_muydificil" })
   get("/contentidos/pormolde", { :controller => "contentidos", :action => "index_pormolde" })
   get("/contentidos/pordificultad", { :controller => "contentidos", :action => "index_pordificultad" })
   get("/contentidos/:id_to_display", { :controller => "contentidos", :action => "show" })

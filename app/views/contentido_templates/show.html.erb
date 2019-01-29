@@ -1,42 +1,55 @@
-<h1>
-  Contentido #<%= @contentido.id %> details
-</h1>
+<div class="container">
+    <div style="height: 50px;"></div>
+            
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card border-secondary mb-3" style="min-height: 500px;">
+          <h6 class="card-header text-white bg-secondary mb-3">  Ejercicios por Contenido </h6>
+          
+          <div class="card-body" align="left">
 
-<a href="/contentidos/<%= @contentido.id %>/edit">
-  Edit contentido
-</a>
+            <table class="table">
+              <tr>
+                <th>
+                  Sub-Contenido
+                </th>
+            
+                <th>
+                  # ejercicios (Muy Fácil / Fácil / Medio / Difícil / Muy Difícil )
+                </th>
+            
+              </tr>
+              
+              <!--- Pendientes de clasificar con contenido --->
 
-<hr>
-
-<dl>
-  <dt>
-    Eje
-  </dt>
-  <dd>
-    <%= @contentido.eje_id %>
-  </dd>
-
-  <dt>
-    Created at
-  </dt>
-  <dd>
-    <%= time_ago_in_words(@contentido.created_at) %> ago
-  </dd>
-
-  <dt>
-    Updated at
-  </dt>
-  <dd>
-    <%= time_ago_in_words(@contentido.updated_at) %> ago
-  </dd>
-</dl>
-
-<a href="/delete_contentido/<%= @contentido.id %>">
-  Delete contentido
-</a>
-
-<hr>
-
-<a href="/contentidos">
-  Go back
-</a>
+              <% @contentido.sub_contenidos.each do |subcont| %>
+              <tr>
+                <td>
+                  <a href="/sub_contentidos/<%= subcont.id %>"> <%= subcont.nombre %> </a>
+                </td>
+            
+                <td>
+                    <% muyfac = Ejercicio.all.where(:sub_contenido_id => subcont.id).where(:dificultad => 1).count %>
+                    <% fac = Ejercicio.all.where(:sub_contenido_id => subcont.id).where(:dificultad => 2).count %>
+                    <% med = Ejercicio.all.where(:sub_contenido_id => subcont.id).where(:dificultad => 3).count %>
+                    <% dif = Ejercicio.all.where(:sub_contenido_id => subcont.id).where(:dificultad => 4).count %>
+                    <% muydif = Ejercicio.all.where(:sub_contenido_id => subcont.id).where(:dificultad => 5).count %>
+                    
+                  <%= Ejercicio.all.where(:sub_contenido_id => subcont.id).count %> (<%= muyfac %> / <%= fac %> / <%= med %> / <%= dif %> / <%= muydif %>)
+                </td>
+            
+              </tr>
+              <% end %>
+            </table>
+            
+            <hr>
+            
+            <div> 
+                <a href="/contentidos/porcontenido" class="btn btn-primary btn-block" align="bottom">  Volver a Contenidos </a>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
