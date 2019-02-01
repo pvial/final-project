@@ -1,6 +1,6 @@
 AWS.config(
-  :access_key_id => "AKIAIP4UGMMLQATMKIWQ",
-  :secret_access_key => "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"
+  :access_key_id => ENV["AWS_ACCESS_KEY_ID"],
+  :secret_access_key => ENV["AWS_SECRET_ACCESS_KEY"]
 )
 
 S3_BUCKET =  AWS::S3.new.buckets["repositorio-portal"]
