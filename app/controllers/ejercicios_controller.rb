@@ -32,9 +32,9 @@ class EjerciciosController < ApplicationController
   
   def index_aprobados
     if current_creador != nil 
-      @ejercicios = Ejercicio.all.where(:aprobado => true).where(:creador_id => current_creador.id)
+      @ejercicios = Ejercicio.all.where(:aprobado => true).where(:creador_id => current_creador.id).sort_by{|ej| [ej.molde_id, ej.id]}
     else
-      @ejercicios = Ejercicio.all.where(:aprobado => true)
+      @ejercicios = Ejercicio.all.where(:aprobado => true).sort_by{|ej| [ej.molde_id, ej.id]}
     end
 
     render("ejercicio_templates/index_aprobados.html.erb")
