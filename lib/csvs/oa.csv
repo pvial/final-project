@@ -1,0 +1,84 @@
+﻿CONT_ID,C_NAME,OB_ID,OA
+41,Números racionales,1.01,Calcular operaciones con números racionales en forma simbólica.
+42,Números reales,2.01,"Realizar cálculos y estimaciones que involucren operaciones con números reales: 
+• Utilizando la descomposición de raíces y las propiedades de las raíces.
+• Combinando raíces con números racionales.
+• Resolviendo problemas que involucren estas operaciones en contextos diversos."
+43,Números complejos,3.03,Resolver problemas aplicando las cuatro operaciones con números complejos.
+44,Potencias,1.02,"Mostrar que comprenden las potencias de base racional y exponente entero:
+• Transfiriendo propiedades de la multiplicación y división de potencias a los ámbitos numéricos correspondientes.
+• Relacionándolas con el crecimiento y decrecimiento de cantidades.
+• Resolviendo problemas de la vida diaria y otras asignaturas."
+45,Raíces,2.02,"Mostrar que comprenden las relaciones entre potencias, raíces enésimas y logaritmos:
+• Comparando representaciones de potencias de exponente racional con raíces enésimas en la recta numérica. • Convirtiendo raíces enésimas a potencias de exponente racional y viceversa.
+• Describiendo la relación entre potencias y logaritmos.
+• Resolviendo problemas rutinarios y no rutinarios que involucren potencias, logaritmos y raíces enésimas."
+46,Logaritmos,2.02,"Mostrar que comprenden las relaciones entre potencias, raíces enésimas y logaritmos:
+• Comparando representaciones de potencias de exponente racional con raíces enésimas en la recta numérica. • Convirtiendo raíces enésimas a potencias de exponente racional y viceversa.
+• Describiendo la relación entre potencias y logaritmos.
+• Resolviendo problemas rutinarios y no rutinarios que involucren potencias, logaritmos y raíces enésimas."
+47,Expresiones algebraicas,1.03,"Desarrollar los productos notables de manera concreta, pictórica y simbólica:
+• Transformando productos en sumas y viceversa.
+• Aplicándolos a situaciones concretas.
+• Completando el cuadrado del binomio.
+• Utilizándolas en la reducción y desarrollo de expresiones algebraicas."
+48,Ecuaciones de primer grado,,
+49,Ecuaciones de segundo grado,2.04,"Resolver, de manera concreta, pictórica y simbólica o usando herramientas tecnológicas, ecuaciones cuadráticas de la forma:
+• ax2 = b
+• (ax+b)2=c
+• ax2 + bx = 0
+• ax2 + bx = c
+• (a, b, c son números racionales, a ≠ 0)."
+50,Función lineal y afín,1.05,"Graficar relaciones lineales en dos variables de la forma f (x,y)
+= ax + by; por ejemplo: un haz de rectas paralelas en el plano
+cartesiano, líneas de nivel en planos inclinados (techo),
+propagación de olas en el mar y la formación de algunas capas
+de rocas:
+• Creando tablas de valores con a, b fijo y x, y variable.
+• Representando una ecuación lineal dada, por medio de un
+gráfico, de manera manual y/o con software educativo.
+• Escribiendo la relación entre las variables de un gráfico
+dado; por ejemplo, variando c en la ecuación
+ax + by = c; a, b, c ∈ Q (decimales hasta la décima)."
+51,Función cuadrática,2.03,"Mostrar que comprenden la función cuadrática f(x)= ax2 + bx + c (a ≠ 0):
+• Reconociendo la función cuadrática f(x) = ax2 en situaciones de la vida diaria y otras asignaturas.
+• Representándola en tablas y gráficos de manera manual y/o con software educativo.
+• Determinando puntos especiales de su gráfica.
+• Seleccionándola como modelo de situaciones de cambio cuadrático de otras asignaturas, en particular de la oferta y demanda."
+52,"Función exponencial, logarítmica y raíz",,
+53,Inecuaciones y sistemas de inecuaciones,4.02,Resolver problemas utilizando inecuaciones lineales o sistemas de inecuaciones lineales.
+54,Sistemas de ecuaciones,1.04,"Resolver sistemas de ecuaciones lineales (2 x 2) relacionados
+con problemas de la vida diaria y de otras asignaturas,
+mediante representaciones gráficas y simbólicas, de manera
+manual y/o con software educativo."
+55,Fracciones algebraicas,,
+56,Conceptos básicos,,
+57,Círculo y circunferencia,,
+58,Cuerpos geométricos,4.06,Determinar áreas de superficie y volúmenes de cuerpos geométricos generados por traslación de figuras planas en el espacio.
+59,"Puntos, planos y vectores",,
+60,Semejanza y congruencia,1.1,"Aplicar propiedades de semejanza y de proporcionalidad
+a modelos a escala y otras situaciones de la vida diaria y
+otras asignaturas."
+61,Transformaciones isométricas,,
+62,Ecuación de la recta,1.05,"Graficar relaciones lineales en dos variables de la forma f (x,y)
+= ax + by; por ejemplo: un haz de rectas paralelas en el plano
+cartesiano, líneas de nivel en planos inclinados (techo),
+propagación de olas en el mar y la formación de algunas capas
+de rocas:
+• Creando tablas de valores con a, b fijo y x, y variable.
+• Representando una ecuación lineal dada, por medio de un
+gráfico, de manera manual y/o con software educativo.
+• Escribiendo la relación entre las variables de un gráfico
+dado; por ejemplo, variando c en la ecuación
+ax + by = c; a, b, c ∈ Q (decimales hasta la décima)."
+63,Organización y representación de datos,1.15,"Mostrar que comprenden el concepto de azar:
+• Experimentando con la tabla de Galton y con paseos
+aleatorios sencillos, de manera manual y/o con software educativo.
+• Realizando análisis estadísticos, empezando por frecuencias relativas.
+• Utilizando probabilidades para describir el comportamiento azaroso.
+• Resolviendo problemas de la vida diaria y de otras asignaturas."
+64,"Medidas de tendencia central, posición y dispersión",,
+65,Muestreo aleatorio,,
+66,Distribución normal,4.12,Aplicar distribuciones normales para resolver problemas de la vida diaria.
+67,Cálculo de probabilidades,2.11,Utilizar permutaciones y la combinatoria sencilla para calcular probabilidades de eventos y resolver problemas.
+68,Variable aleatoria discreta y continua,3.17,Representar funciones de probabilidad y distribuciones de una variable aleatoria discreta.

@@ -15,6 +15,7 @@ gem "sass-rails", "~> 5.0"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "uglifier", ">= 1.3.0"
 
+
 group :production do
   gem "pg", "~> 0.18"
   gem "rails_12factor"
@@ -29,7 +30,7 @@ group :development, :test do
   gem "draft_log", github: "firstdraft/draft_log"
   gem "grade_runner", github: "firstdraft/grade_runner"
   gem "pry-rails"
-  gem "sqlite3"
+  gem 'sqlite3', '~> 1.3.13'
   gem "web_git", github: "firstdraft/web_git"
 end
 
@@ -45,6 +46,7 @@ group :development do
   gem "spring-watcher-listen", "~> 2.0.0f"
   gem "spring"
   gem "web-console", ">= 3.3.0"
+  gem 'sqlite3', '~> 1.3.13'
 end
 
 group :test do

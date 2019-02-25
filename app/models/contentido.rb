@@ -8,6 +8,7 @@
 #  updated_at :datetime         not null
 #  nombre     :text
 #  final      :integer
+#  oa         :text
 #
 
 class Contentido < ApplicationRecord

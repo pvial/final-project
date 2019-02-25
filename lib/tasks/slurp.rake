@@ -42,5 +42,29 @@ namespace :slurp do
     puts "There are now #{SubContenido.count} rows in the contenido table"
     
   end
+  
+  task update_contenidos: :environment do
+    
+    require "csv"
+
+    csv_text = File.read(Rails.root.join("lib", "csvs", "oa.csv"))
+    csv = CSV.parse(csv_text, :headers => true, :encoding => "ISO-8859-1")
+    csv.each do |row|
+      i = row["CONT_ID"]
+      puts "empezó #{i}" 
+            t=Contentido.find(i)
+      t.oa = row["OA"]
+      puts "#{t.oa}"
+      if t.valid?
+        t.save
+        puts "#{t.oa} saved"
+      else
+        puts "#{t.oa} /// no guardado"
+      end
+    end
+    
+    puts "There are now #{Contentido.count} rows in the contenido table"
+    
+  end
 
 end

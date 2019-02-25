@@ -7,6 +7,8 @@
 #  nombre       :text
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  id_post      :integer
+#  id_pre       :integer
 #
 
 class SubContenido < ApplicationRecord
