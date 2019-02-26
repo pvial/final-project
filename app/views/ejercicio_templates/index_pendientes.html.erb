@@ -90,7 +90,7 @@
                 </td>
                 
                 <td>
-                  <%  if Molde.find(ejercicio.molde_id).ejercicios.pluck(:dificultad).max != nil %>
+                  <%  if Molde.find(ejercicio.molde_id).ejercicios.pluck(:dificultad).any? %>
                     <% rango = Molde.find(ejercicio.molde_id).ejercicios.pluck(:dificultad).max - Molde.find(ejercicio.molde_id).ejercicios.pluck(:dificultad).min %>
                   <% else  %>
                     <% rango = "No Disponible" %>
