@@ -121,8 +121,13 @@
                     
                     <div style="height: 10px;"> </div>
                     
-                    <h6> Molde (gemelos aprobados) </h6>
-                    <p> <%= @ej.molde_id %> (<%= Ejercicio.where(:aprobado => true).where(:molde_id => @ej.molde_id).count %>) </p>
+                    <h6> Molde (gemelos aprobados) / {RANGO DIFICULTAD }</h6>
+                      <%  if Molde.find(@ej.molde_id).ejercicios.pluck(:dificultad).max != nil %>
+                        <% rango = Molde.find(@ej.molde_id).ejercicios.pluck(:dificultad).max - Molde.find(@ej.molde_id).ejercicios.pluck(:dificultad).min %>
+                      <% else  %>
+                        <% rango = "No Disponible" %>
+                      <% end %>
+                    <p> <%= @ej.molde_id %> (<%= Ejercicio.where(:aprobado => true).where(:molde_id => @ej.molde_id).count %>) / { <%= rango %> } </p>
                     
                     <h6> Contenido </h6>
                     <p> 

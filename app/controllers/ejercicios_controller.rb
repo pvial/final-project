@@ -52,9 +52,9 @@ class EjerciciosController < ApplicationController
   
   def index_pendientes
     if current_creador != nil 
-      @ejercicios = Ejercicio.all.where(:aprobado => false).where(:bandera => false).where(:creador_id => current_creador.id)
+      @ejercicios = Ejercicio.all.where(:aprobado => false).where(:bandera => false).where(:creador_id => current_creador.id).sort_by{|ej| [ej.molde_id, ej.id]}
     else
-      @ejercicios = Ejercicio.all.where(:aprobado => false).where(:bandera => false)
+      @ejercicios = Ejercicio.all.where(:aprobado => false).where(:bandera => false).sort_by{|ej| [ej.molde_id, ej.id]}
     end
     
     render("ejercicio_templates/index_pendientes.html.erb")

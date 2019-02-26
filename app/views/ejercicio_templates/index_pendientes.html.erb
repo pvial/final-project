@@ -36,12 +36,18 @@
                 </th>
             
                 <th>
-                  Gemelos aprobados
+                  Molde (Gemelos aprobados)
+                </th>
+                
+                <th>
+                  Dificultad (rango)
                 </th>
                 
                 <th>
                   Comentario
                 </th>
+                
+                
             
                 <th>
                 </th>
@@ -80,7 +86,17 @@
                 </td>
             
                 <td>
-                  <%= Ejercicio.where(:aprobado => true).where(:molde_id => ejercicio.molde_id).count %>
+                  <%= Molde.find(ejercicio.molde_id).id %> (<%= Ejercicio.where(:aprobado => true).where(:molde_id => ejercicio.molde_id).count %>)
+                </td>
+                
+                <td>
+                  <%  if Molde.find(ejercicio.molde_id).ejercicios.pluck(:dificultad).max != nil %>
+                    <% rango = Molde.find(ejercicio.molde_id).ejercicios.pluck(:dificultad).max - Molde.find(ejercicio.molde_id).ejercicios.pluck(:dificultad).min %>
+                  <% else  %>
+                    <% rango = "No Disponible" %>
+                  <% end %>
+                      
+                  <%= ejercicio.dificultad %> ( <%= rango %> ) 
                 </td>
             
                 <td>
