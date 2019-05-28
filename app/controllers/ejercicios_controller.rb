@@ -32,9 +32,11 @@ class EjerciciosController < ApplicationController
   
   def index_aprobados
     if current_creador != nil 
-      @ejercicios = Ejercicio.all.where(:aprobado => true).where(:creador_id => current_creador.id).sort_by{|ej| [ej.molde_id, ej.id]}
+      #@ejercicios = Ejercicio.all.where(:aprobado => true).where(:creador_id => current_creador.id).sort_by{|ej| [ej.molde_id, ej.id]}
+      @ejercicios = Ejercicio.all.where(:aprobado => true).where(:creador_id => current_creador.id).paginate(page: params[:page], per_page: 5)
     else
-      @ejercicios = Ejercicio.all.where(:aprobado => true).sort_by{|ej| [ej.molde_id, ej.id]}
+      #@ejercicios = Ejercicio.all.where(:aprobado => true).sort_by{|ej| [ej.molde_id, ej.id]}
+      @ejercicios = Ejercicio.all.where(:aprobado => true).paginate(page: params[:page], per_page: 5)
     end
 
     render("ejercicio_templates/index_aprobados.html.erb")

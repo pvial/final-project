@@ -103,7 +103,12 @@
               </tr>
               <% end %>
             </table>
-            
+            <div class="flickr_pagination">
+              <div class="page_info">
+                <%= page_entries_info @ejercicios %>
+              </div>
+              <%= will_paginate @ejercicios, :container => false %>
+            </div>
           </div>
         </div>
       </div>

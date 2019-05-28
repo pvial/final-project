@@ -14,6 +14,7 @@ gem "rails", "~> 5.1.5"
 gem "sass-rails", "~> 5.0"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "uglifier", ">= 1.3.0"
+gem 'will_paginate', '~> 3.1.0'
 
 
 group :production do
