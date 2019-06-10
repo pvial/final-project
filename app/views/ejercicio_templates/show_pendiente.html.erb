@@ -1,0 +1,229 @@
+<% if current_aprobador != nil %>
+
+    <% if @ej != nil %>
+    
+        <div class="container">
+            <div style="height: 50px;">
+            </div>
+            
+            <div class="row">
+              
+              <!--- enunciado y respuestas, imagen y opciones --->
+              <div class="col-md-9">
+                <div class="card border-secondary mb-3" style="min-height: 500px;">
+                  <h6 class="card-header text-white bg-secondary mb-3">  Previsualización </h6>
+                  
+                  <!--- presentacion de enunciado (y opciones) --->
+                  <div class="row">  
+                    <div class="card-body" align="left">
+                  
+                      <h6> Enunciado </h6>
+                      <p> <%= @ej.enunciado.gsub(/\n/,"<br/>").html_safe %> </p>
+                      
+                      <div style="height: 20px;"> 
+                      </div>
+                      
+                      <% if @ej.op1 != "" %>
+                        <h6> Opciones:   </h6>
+                        <ul>
+
+                        <% if @ej.op1 != "" %>
+                          <li> <%= @ej.op1 %>  </li>
+                        <% end %>
+                        
+                        <% if @ej.op2 != "" %>
+                          <li> <%= @ej.op2 %>  </li>
+                        <% end %>
+                        
+                        <% if @ej.op3 != "" %>
+                          <li> <%= @ej.op3 %>  </li>
+                        <% end %>
+                        
+                        <% if @ej.op4 != "" %>
+                          <li> <%= @ej.op4 %>  </li>
+                        <% end %>
+                        
+                        <% if @ej.op5 != "" %>
+                          <li> <%= @ej.op5 %>  </li>
+                        <% end %>
+                        
+                        </ul>
+                      <% end %>
+                  
+                    </div> 
+                  </div>
+                  
+                  <!--- respuestas e imagen --->
+                  <div class="row">
+                    <div style="height: 10px;">
+                    </div>
+                  
+                    <!--- Respuestas --->
+                    <div class="col-md-4">  
+                      <div class="card-body" align="left">
+  
+                        <h6> Respuesta correcta</h6>
+                        <ul>
+                            <li> <%= @ej.resp_correcta %> </li>
+                        </ul>
+                        
+                        <h6> Distractores </h6>
+                        <ul>
+                            <li> <%= @ej.w1 %> </li>
+                            <li> <%= @ej.w2 %> </li>
+                            <li> <%= @ej.w3 %> </li>
+                            <li> <%= @ej.w4 %> </li>
+                        </ul>
+  
+                      </div>
+                    </div>
+
+                    <!--- imagen --->
+                    <div class="col-md-4" style="heigth: 100%;">
+                      <div class="card-body" style="heigth: 50%;">
+                        <% if @ej.imagen!= nil %>
+                          <div class="holder">
+                            <img src="<%= @ej.imagen %>" alt="Chart" style="width:300px;">
+                          </div>
+                        <% end %>  
+                      </div>
+                      
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              
+              
+              
+              
+              <!--- otros detalles --->
+              <div class="col-md-3">
+                <div class="card border-secondary mb-3" style="min-height: 500px;">
+                  
+                  <!--- presentacion de detalles del ejercicio --->
+                  <div class="card-body" align="left">
+                    
+                    <h6> ID </h6>
+                    <p> <%= @ej.id %> </p>
+                    
+                    <div style="height: 10px;"> </div>
+                    
+                    <h6> Creador </h6>
+                    <p> <%= Creador.find(@ej.creador_id).email %> </p>
+                    
+                    <div style="height: 10px;"> </div>
+                    
+                    <% if @ej.aprobado == true %>
+                      <h6> Aprobador </h6>
+                      <p> <%= Aprobador.find(@ej.aprobador_id).email %> </p>
+                    <% end %>
+                    
+                    <div style="height: 10px;"> </div>
+                    
+                    <h6> Molde (gemelos aprobados) </h6>
+                      
+                    <p> <%= @ej.molde_id %> (<%= Ejercicio.where(:aprobado => true).where(:molde_id => @ej.molde_id).count %>) </p>
+                    
+                    <h6> Contenido </h6>
+                    <p> 
+                      <% if Contentido.find(@ej.contenido_id).final != 1 %>
+                        //// NO ACTUALIZADO //// -> Antiguo: <%= Contentido.find(@ej.contenido_id).nombre %> 
+                      <% else %>
+                        <%= Contentido.find(@ej.contenido_id).nombre %> 
+                      <% end %>
+                    </p>
+                    
+                    <% if @ej.sub_contenido_id == nil  %>
+                        //// NO ACTUALIZADO ////
+                      <% else %>
+                        <%= SubContenido.find(@ej.sub_contenido_id).nombre %> 
+                      <% end %>
+                    
+                    <h6> Dificultad </h6>
+                    <p> <%= @ej.dificultad %> </p>
+                    
+                    <h6> Habilidad </h6>
+                    <p> <%= @ej.habilidad %> </p>
+                    
+                    <h6> Comentario </h6>
+                    <p> <%= @ej.comentario %> </p>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!--- Botones de aprobación y rechazo --->
+            <div class="row">
+                
+                    <div class="col-md-4" align="center">
+                      <form action="/aprobar_ejercicio">
+                            
+                            <input type="hidden" name="excercise_id" class="form-control" value="<%= @ej.id %>">
+                            
+                            
+                            <button type="submit" class="btn btn-success mb-4"> Aprobar </button>
+                            
+                        </form>
+                    </div>
+                    <div class="col-md-8" align="center">
+                         
+                        <form action="/rechazar_ejercicio">
+                          <div class="row">
+                            <div class="col-md-2" align="center">
+                              <button type="submit" class="btn btn-danger mb-4" > Rechazar </button>
+                            </div>
+                            
+                            <input type="hidden" name="excercise_id" class="form-control" value="<%= @ej.id %>">
+                            
+                            <div class="col-md-6" align="center">  
+                              
+                                <div class="form-group">
+                                  <label for="comentario">
+                                    Agregar comentario para el creador:
+                                  </label>
+                            
+                                  <textarea id="comentario" name="comentario" class="form-control" rows="3"><%= @ej.comentario %></textarea>
+                                </div>
+                              
+                            </div>
+                            
+                          </div>  
+                        </form>  
+                    </div>
+                
+            </div>
+            
+            <!--- Solucion y hint --->
+            <div class="row"> 
+              
+              <div class="col-md-12">
+                <div class="card border-secondary mb-3" style="min-height: 500px;">
+                  <h6 class="card-header text-white bg-secondary mb-3">  Solución y Hint </h6>
+                  
+                  <!--- Hint --->
+                  <div class="col-md-12">
+                      <div class="card border-secondary" style="width: 100%;">
+                        <h6>  Hint: </h6> <br> <p><%= @ej.hint.gsub(/\n/,"<br/>").html_safe %></p>
+                      </div>
+                  </div>
+                        
+                  <!--- Solución  --->
+                  <div class="col-md-12">
+                      <div class="card border-secondary" style="width: 100%;">
+                        <h6>  Solución: </h6> <br> <p><%= @ej.solucion.gsub(/\n/,"<br/>").html_safe %></p>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    
+    <% else %>
+    
+    <p> No hay ejercicios para aprobación </p>
+    
+    <% end %>
+
+<% end %>

@@ -75,6 +75,12 @@ class EjerciciosController < ApplicationController
     render("ejercicio_templates/show.html.erb")
   end
 
+  def show_pendiente
+    @ej = Ejercicio.find(params.fetch("id_to_display"))
+
+    render("ejercicio_templates/show_pendiente.html.erb")
+  end
+
   def new_form
     render("ejercicio_templates/new_form.html.erb")
   end
