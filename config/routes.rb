@@ -91,6 +91,7 @@ Rails.application.routes.draw do
   get("/ejercicios_pendientes", { :controller => "ejercicios", :action => "index_pendientes" })
   get("/ejercicios/visor_apr", { :controller => "ejercicios", :action => "visor_apr" })
   get("/ejercicios/:id_to_display", { :controller => "ejercicios", :action => "show" })
+  get("/ejercicios_pendientes/:id_to_display", { :controller => "ejercicios", :action => "show_pendiente" })
 
   # UPDATE
   get("/ejercicios/:prefill_with_id/edit", { :controller => "ejercicios", :action => "edit_form" })
