@@ -2,7 +2,7 @@
 #
 # Table name: sub_contenidos
 #
-#  id           :integer          not null, primary key
+#  id           :bigint(8)        not null, primary key
 #  contenido_id :integer
 #  nombre       :text
 #  created_at   :datetime         not null

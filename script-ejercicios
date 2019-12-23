@@ -1,0 +1,1 @@
+QuestionsImporterService.new(uri: 'postgres://jvbumftxtlnnsk:bf6c783ecc8cdbe79dad18feba54f9e995f4b03ed40b580861e71dd135f5be89@ec2-107-21-99-237.compute-1.amazonaws.com:5432/ddnold5mpgmta8').generate_tree

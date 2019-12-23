@@ -70,7 +70,7 @@ class EjerciciosController < ApplicationController
   end
 
   def show
-    @ej = Ejercicio.find(params.fetch("id_to_display"))
+    @ej = Ejercicio.find(params.fetch("id"))
 
     render("ejercicio_templates/show.html.erb")
   end
@@ -279,5 +279,48 @@ class EjerciciosController < ApplicationController
     @ejercicio.destroy
 
     redirect_back fallback_location: root_path
+  end
+
+  def import
+    
+    CSV.foreach(params[:file].path, headers: true) do |row|
+      m = Molde.new
+      m.save
+      
+      ejercicio = Ejercicio.new
+      ejercicio.aprobado = false
+      ejercicio.contenido_id = row['contenido_id']
+      ejercicio.sub_contenido_id = row['sub_contenido_id']
+      ejercicio.bandera = false
+      ejercicio.molde_id = m.id
+      ejercicio.enunciado = row['enunciado']
+      ejercicio.imagen = row['imagen'] || ""
+      ejercicio.resp_correcta = row['resp_correcta']
+      ejercicio.w1 = row['w1']
+      ejercicio.w2 = row['w2']
+      ejercicio.w3 = row['w3']
+      ejercicio.w4 = row['w4']
+      ejercicio.op1 = row['op1'] || ""
+      ejercicio.op2 = row['op2'] || ""
+      ejercicio.op3 = row['op3'] || ""
+      ejercicio.op4 = row['op4'] || ""
+      ejercicio.hint = row['hint'] || ""
+      ejercicio.op5 = row['op5'] || ""
+      ejercicio.dificultad = row['dificultad']
+      ejercicio.habilidad = row['habilidad']
+      ejercicio.last_pre_ex_id = "1"
+      ejercicio.creador_id = current_creador.id
+      ejercicio.solucion = row['solucion'] || ""
+  
+      if ejercicio.valid?
+        ejercicio.save
+      end
+    end
+
+      redirect_to("/ejercicios_pendientes", :notice => "Ejercicios correctamente importados.")
+      
+    
+
+    
   end
 end

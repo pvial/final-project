@@ -2,7 +2,7 @@
 #
 # Table name: ejercicios
 #
-#  id               :integer          not null, primary key
+#  id               :bigint(8)        not null, primary key
 #  aprobado         :boolean
 #  contenido_id     :integer
 #  bandera          :boolean
@@ -38,4 +38,10 @@ class Ejercicio < ApplicationRecord
     belongs_to :molde
     belongs_to :creador
     belongs_to :aprobador, :required => false
+
+    def self.import(file)
+        CSV.foreach(file.path, headers: true) do |row|
+            Ejercicio.create! row.to_hash
+        end
+    end
 end

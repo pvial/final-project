@@ -2,7 +2,7 @@
 #
 # Table name: pre_exes
 #
-#  id               :integer          not null, primary key
+#  id               :bigint(8)        not null, primary key
 #  contenido_id     :integer
 #  molde_id         :integer
 #  enunciado        :text

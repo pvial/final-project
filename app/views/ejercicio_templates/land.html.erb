@@ -156,6 +156,18 @@
                     Crear nuevo ejercicio
                 </a>
             </div>
+            <div style="height: 20px;"></div>
+            <%= form_tag  import_ejercicios_path, multipart: true do %>
+              <div class="input-group" id="inputGroupFile02">
+                <div class="input-group-prepend">
+                  <%= submit_tag "Upload", class: 'input-group-text', id: 'inputGroupFileAddon01' %>
+                </div>
+                <div class="custom-file">
+                  <%= file_field_tag :file, class: 'custom-file-input', id: 'inputGroupFile01', 'aria-describedby': 'inputGroupFileAddon01' %>
+                  <label class="custom-file-label" for="inputGroupFile01" id="file-label">Elige un archivo</label>
+                </div>
+              </div>
+            <% end %>
             
             <div style="height: 20px;"></div>
             

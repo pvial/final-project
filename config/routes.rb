@@ -79,6 +79,10 @@ Rails.application.routes.draw do
 
   # Routes for the Ejercicio resource:
 
+  resources :ejercicios do
+    collection { post :import}
+  end
+
   # CREATE
   get("/ejercicios/new", { :controller => "ejercicios", :action => "new_form" })
   post("/create_ejercicio", { :controller => "ejercicios", :action => "create_row" })

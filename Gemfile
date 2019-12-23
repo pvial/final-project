@@ -31,7 +31,7 @@ group :development, :test do
   gem "draft_log", github: "firstdraft/draft_log"
   gem "grade_runner", github: "firstdraft/grade_runner"
   gem "pry-rails"
-  gem 'sqlite3', '~> 1.3.13'
+  gem "pg", "~> 0.18"
   gem "web_git", github: "firstdraft/web_git"
 end
 
@@ -47,7 +47,7 @@ group :development do
   gem "spring-watcher-listen", "~> 2.0.0f"
   gem "spring"
   gem "web-console", ">= 3.3.0"
-  gem 'sqlite3', '~> 1.3.13'
+  gem "pg", "~> 0.18"
 end
 
 group :test do
