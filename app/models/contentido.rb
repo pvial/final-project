@@ -16,4 +16,8 @@ class Contentido < ApplicationRecord
     has_many :ejercicios, :foreign_key => "contenido_id"
     has_many :sub_contenidos, :foreign_key => "contenido_id"
     belongs_to :eje
+
+    def display_name
+        nombre
+      end
 end

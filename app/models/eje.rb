@@ -10,4 +10,7 @@
 
 class Eje < ApplicationRecord
     has_many :contentidos
+    def display_name
+        nombre
+      end
 end
