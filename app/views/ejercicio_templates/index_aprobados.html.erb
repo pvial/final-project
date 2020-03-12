@@ -7,7 +7,7 @@
           <h6 class="card-header text-white bg-success mb-3">  Ejercicios aprobados: <%= @ejercicios.count %> </h6>
           
           <div class="card-body" align="left">
-            
+          <%= paginate @ejercicios %>
             <table class="table">
               <tr>
                 <th>
@@ -103,12 +103,8 @@
               </tr>
               <% end %>
             </table>
-            <div class="flickr_pagination">
-              <div class="page_info">
-                <%= page_entries_info @ejercicios %>
-              </div>
-              <%= will_paginate @ejercicios, :container => false %>
-            </div>
+            <%= paginate @ejercicios %>
+            
           </div>
         </div>
       </div>
