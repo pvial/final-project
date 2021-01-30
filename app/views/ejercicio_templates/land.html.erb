@@ -157,7 +157,7 @@
                 </a>
             </div>
             <div style="height: 20px;"></div>
-            <%= form_tag  import_ejercicios_path, multipart: true do %>
+            <%= form_tag  "/ejercicios/import", multipart: true do %>
               <div class="input-group" id="inputGroupFile02">
                 <div class="input-group-prepend">
                   <%= submit_tag "Upload", class: 'input-group-text', id: 'inputGroupFileAddon01' %>
