@@ -69,7 +69,7 @@ class EjerciciosController < ApplicationController
   end
 
   def show
-    @ej = Ejercicio.find(params.fetch("id"))
+    @ej = Ejercicio.find(params.fetch("id_to_display"))
 
     render("ejercicio_templates/show.html.erb")
   end
